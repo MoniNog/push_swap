@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 14:38:06 by moni              #+#    #+#             */
-/*   Updated: 2024/05/07 15:11:24 by moni             ###   ########.fr       */
+/*   Updated: 2024/05/07 16:33:38 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_game
 # define KEY_LEFT 65361
 # define KEY_RIGHT 65363
 
-int		ft_ismaprectangular(t_game *map);
-int		main(int argc, char **argv);
+void	get_map(char **argv);
+int		main();
 
 #endif
