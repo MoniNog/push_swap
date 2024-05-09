@@ -6,14 +6,14 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 14:38:06 by moni              #+#    #+#             */
-/*   Updated: 2024/05/07 16:33:38 by moni             ###   ########.fr       */
+/*   Updated: 2024/05/09 14:52:53 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "mlx_LINUX.h"
+# include "../lib/mlx_LINUX/mlx_int.h"
 # include "get_next_line.h"
 # include "ft_printf.h"
 # include "../../includes/libft.h"

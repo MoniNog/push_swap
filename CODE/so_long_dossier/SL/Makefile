@@ -2,7 +2,7 @@ NAME = boom
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -I./lib/mlx_LINUX -I./lib/libft
 LIBFT_PATH = ./lib/libft
-MLX_PATH = ./lib/mlx_LINUX
+MLX_PATH = ./lib/mlx_LINUX -lmlx
 LIBFT = -L$(LIBFT_PATH) -lft
 MLX = -L$(MLX_PATH) -lmlx -lXext -lX11 -lm -lbsd
 
@@ -13,7 +13,6 @@ OBJS = $(SRC:.c=.o)
 HEADERS = -Iincludes
 
 all: $(NAME)
-#macOS	gcc $(OBJS) -o so_long -lmlx -framework OpenGL -framework AppKit
 
 $(NAME): $(OBJS)
 	make -C ./lib/libft
@@ -24,12 +23,12 @@ $(OBJS): %.o : %.c
 
 clean:
 	make -C ./lib/libft clean
-	make -C ./lib/mlx_LINUX
 	rm -f $(OBJS)
 
 fclean: clean
 	make -C ./lib/libft fclean
-	make -C ./lib/mlx_LINUX
 	rm -f $(NAME)
 
 re: fclean all
+
+#macOS	gcc $(OBJS) -o so_long -lmlx -framework OpenGL -framework AppKit
