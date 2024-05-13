@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 14:38:06 by moni              #+#    #+#             */
-/*   Updated: 2024/05/09 14:52:53 by moni             ###   ########.fr       */
+/*   Updated: 2024/05/13 15:08:49 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ typedef struct s_game
 	int		hauteur;
 	int		largeur;
 	char	*line;
-}				t_game;
+	char	**map;
+}			t_game;
 
 # define KEY_ESC 65307
 # define KEY_UP 65362
@@ -37,7 +38,10 @@ typedef struct s_game
 # define KEY_LEFT 65361
 # define KEY_RIGHT 65363
 
-void	get_map(char **argv);
+void	get_map(char **argv, t_game *lst);
+int		borders_are_walls(char **map);
+int		check_char(char **map);
+int		count_char(char **map);
 int		main();
 
 #endif

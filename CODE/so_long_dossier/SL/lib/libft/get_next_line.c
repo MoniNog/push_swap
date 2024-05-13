@@ -5,136 +5,108 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/21 10:20:04 by moni              #+#    #+#             */
-/*   Updated: 2024/05/08 19:54:11 by moni             ###   ########.fr       */
+/*   Created: 2022/08/10 17:45:14 by jerdos-s          #+#    #+#             */
+/*   Updated: 2024/05/13 16:00:22 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/get_next_line.h"
 
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 42
-#endif
-
-char	*read_line(int fd, char *line)
+size_t	ft_strlen(char const *str)
 {
-	char	*buffer;
-	ssize_t	bytes_read;
-
-	buffer = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
-	if (!buffer)
-		return (NULL);
-	bytes_read = 1;
-	while (!ft_strchr_newline(line) && bytes_read > 0)
-	{
-		bytes_read = read(fd, buffer, BUFFER_SIZE);
-		if (bytes_read == -1)
-		{
-			free(buffer);
-			return (NULL);
-		}
-		buffer[bytes_read] = '\0';
-		line = ft_sstrjoin(line, buffer);
-	}
-	free(buffer);
-	return (line);
-}
-
-char	*extract_line(char *line)
-{
-	char	*extracted_line;
-	int		i;
+	size_t	i;
 
 	i = 0;
-	if (!line[i])
-		return (NULL);
-	while (line[i] && line[i] != '\n')
+	if (!str)
+		return (0);
+	while (str[i] != '\0')
 		i++;
-	extracted_line = (char *)malloc(i + 2);
-	if (!extracted_line)
-		return (NULL);
-	i = 0;
-	while (line[i] && line[i] != '\n')
-	{
-		extracted_line[i] = line[i];
-		i++;
-	}
-	if (line[i] == '\n')
-	{
-		extracted_line[i] = line[i];
-		i++;
-	}
-	extracted_line[i] = '\0';
-	return (extracted_line);
+	return (i);
 }
 
-char	*remove_line(char *line)
+size_t	ft_strlcat(char	*dst, const char *src, size_t size)
 {
-	char	*text_after_extraction;
+	size_t	i;
 	size_t	len;
-	int		i;
-	int		j;
 
+	len = 0;
 	i = 0;
-	j = 0;
-	while (line[i] && line[i] != '\n')
-		i++;
-	if (!line[i])
+	while (len < size && dst[len] != '\0')
+		len++;
+	if (!src)
+		return (len);
+	while (len + i + 1 < size && src[i] != '\0')
 	{
-		free(line);
+		dst[len + i] = src[i];
+		i++;
+	}
+	if (len + i < size)
+		dst[len + i] = '\0';
+	while (src[i] != '\0')
+		i++;
+	return (len + i);
+}
+
+int	ft_read_from_buff(char **current_buff, int fd)
+{
+	char	*res;
+	char	*buff;
+	int		len;
+
+	buff = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!buff)
+		return (0);
+	res = *current_buff;
+	while (!ft_strchr(res, '\n'))
+	{
+		len = read(fd, buff, BUFFER_SIZE);
+		if (len < 0 || (ft_strlen(res) == 0 && len == 0))
+		{
+			free(buff);
+			return (0);
+		}
+		if (len == 0)
+			break ;
+		buff[len] = '\0';
+		res = ft_strjoin(res, buff);
+		free(*current_buff);
+		*current_buff = res;
+	}
+	free(buff);
+	return (1);
+}
+
+char	*ft_init_new_buff(char *buff)
+{
+	char	*end;
+
+	end = ft_strchr(buff, '\n');
+	if (!end)
+	{
+		free(buff);
 		return (NULL);
 	}
-	len = ft_strlen(line) - i;
-	text_after_extraction = (char *)malloc(len + 1);
-	if (!text_after_extraction)
-		return (NULL);
-	i++;
-	while (line[i])
-		text_after_extraction[j++] = line[i++];
-	text_after_extraction[j] = '\0';
-	free(line);
-	return (text_after_extraction);
+	end = ft_strjoin(end + 1, NULL);
+	free(buff);
+	return (end);
 }
 
 char	*get_next_line(int fd)
 {
-	static char	*static_buffer;
-	char		*line;
+	static char	*current_buff;
+	char		*current_line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	if (read(fd, 0, 0) == -1)
+	if (!ft_read_from_buff(&current_buff, fd))
 	{
-		free(static_buffer);
-		static_buffer = NULL;
+		free(current_buff);
+		current_buff = NULL;
 		return (NULL);
 	}
-	static_buffer = read_line(fd, static_buffer);
-	if (!static_buffer)
+	current_line = ft_get_line(current_buff);
+	if (!current_line)
 		return (NULL);
-	line = extract_line(static_buffer);
-	static_buffer = remove_line(static_buffer);
-	return (line);
+	current_buff = ft_init_new_buff(current_buff);
+	return (current_line);
 }
-
-/*	read_line:
-	Reads data from the file specified by fd into a buffer, concatenates it to
-	'line' until a newline character ('\n') or the end of the file is found.
-	Frees the temporary buffer and returns the accumulated string. */
-
-/*	extract_line:
-	Extracts the first line (up to the first '\n', inclusive) from the string
-	'line'. Allocates and returns a new string containing this extracted line.
-	*/
-
-/*	remove_line:
-	Removes the first line from the string 'line' and returns the rest. If 
-	'line' starts with a '\n', this function creates a new string without this
-	leading '\n' and the preceding part of 'line', freeing the old string. */
-
-/*	get_next_line:
-	The main function that uses a static buffer to accumulate data read from
-	the file descriptor 'fd'. It reads data by calling read_line, extracts the
-	first available line with extract_line, and updates the static buffer by
-	removing this line with remove_line. Returns the extracted line or NULL if
-	the end of the file is reached or in case of an error. */
