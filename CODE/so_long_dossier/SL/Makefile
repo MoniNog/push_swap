@@ -6,7 +6,7 @@ MLX_PATH = ./lib/mlx_LINUX -lmlx
 LIBFT = -L$(LIBFT_PATH) -lft
 MLX = -L$(MLX_PATH) -lmlx -lXext -lX11 -lm -lbsd
 
-SRC = src/map_loader.c src/checker.c
+SRC = src/map_loader.c
 OBJS = $(SRC:.c=.o)
 HEADERS = -Iincludes
 
@@ -31,6 +31,6 @@ re: fclean all
 
 #macOS	gcc $(OBJS) -o so_long -lmlx -framework OpenGL -framework AppKit
 
-# /*src/event_handler.c src/game_loop.c*/ src/map_loader.c /*src/render.c \
+# src/utility.c src/event_handler.c src/game_loop.c src/map_loader.c src/render.c \
 # 	src/utility.c src/game_init.c src/main.c src/memory_management.c \
-# 	src/textures.c*/ src/checker.c
+# 	src/textures.c src/checker.c

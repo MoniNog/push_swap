@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:09:34 by moni              #+#    #+#             */
-/*   Updated: 2024/05/10 09:18:18 by moni             ###   ########.fr       */
+/*   Updated: 2024/05/24 12:47:06 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,29 @@ void draw_map(t_game *game, int map[MAX_WIDTH][MAX_WIDTH], int rows, int cols)
 	}
 }
 
+// int	main(void)
+// {
+// 	t_game	game;
+
+// 	game.mlx = mlx_init();
+// 	if (game.mlx == NULL)
+// 	{
+// 		printf("game.mlx == NULL");
+// 		return (1);
+// 	}
+// 	game.win = mlx_new_window(game.mlx, 600, 600, "pixie");
+// 	if (game.win == NULL)
+// 	{
+// 		printf("game.win == NULL");
+// 		return (1);
+// 	}	
+// 	mlx_key_hook(game.win, key_hook, &game);
+// 	mlx_pixel_put(game.mlx, game.win, 100, 100, 0xFF0000);
+// 	mlx_loop(game.mlx);
+// 	return (0);
+// }
+
+mlx_put_image_to_window
 // ft_render, render, core_render, render_other, render_background, render_down,
 // render_left, render_right, render_top, draw, draw_background, draw_hud, draw_hud_life,
 // draw_hud_mana, draw_hud_steps: Toutes les fonctions liées au rendu des différents composants à l'écran.
