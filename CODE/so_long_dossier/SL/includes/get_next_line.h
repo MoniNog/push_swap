@@ -5,29 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/10 18:28:18 by jerdos-s          #+#    #+#             */
-/*   Updated: 2024/05/13 15:58:37 by moni             ###   ########.fr       */
+/*   Created: 2024/03/21 09:21:16 by moni              #+#    #+#             */
+/*   Updated: 2024/05/27 17:06:16 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1024
-# endif
-# include <unistd.h>
+
+# include <fcntl.h>
+# include <stdio.h>
 # include <stdlib.h>
+# include <string.h>
+# include <unistd.h>
 
 char	*get_next_line(int fd);
-int		ft_read_from_buff(char **current_buff, int fd);
-char	*ft_get_line(char *current_buff);
-char	*ft_init_new_buff(char *current_buff);
-
-char	*ft_strchr(const char *s, int c);
-char	*ft_strjoin(char const *s1, char const *s2);
-void	*ft_calloc(size_t nmemb, size_t size);
-char	*ft_ssubstr(char const *s, size_t len);
-size_t	ft_strlen(char const *str);
-size_t	ft_strlcat(char *dst, const char *src, size_t size);
+char	*remove_line(char *line);
+char	*extract_line(char *line);
+char	*read_line(int fd, char *line);
+size_t	ft_strlen(const char *s);
+char	*ft_sstrjoin(char *s1, char *s2);
+char	*ft_strchr_newline(const char *s);
 
 #endif

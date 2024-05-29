@@ -7,6 +7,9 @@ OBJ_DIR = obj/
 SRC = ft_atoi.c ft_putendl_fd.c ft_strlen.c ft_bzero.c \
 		ft_putnbr_fd.c ft_strmapi.c\
 		ft_calloc.c        ft_putnbr_fd.c       ft_strncmp.c\
+		ft_lstadd_back.c   ft_lstclear.c        ft_lstiter.c\
+		ft_lstmap.c        ft_lstsize.c         ft_lstadd_front.c\
+		ft_lstdelone.c     ft_lstlast.c         ft_lstnew.c\
 		ft_isalnum.c       ft_putnbr_hex_ptr.c  ft_strncpy.c\
 		ft_isalpha.c       ft_putnbr_hex_xlo.c  ft_strnstr.c\
 		ft_isascii.c       ft_putnbr_hex_xup.c  ft_strrchr.c\
@@ -20,14 +23,10 @@ SRC = ft_atoi.c ft_putendl_fd.c ft_strlen.c ft_bzero.c \
 		ft_strcpy.c        ft_memset.c          ft_strdup.c\
 		ft_printf.c        ft_striteri.c        ft_strjoin.c\
 		ft_putnbr.c        ft_putchar.c         ft_strlcat.c\
-		ft_putchar_fd.c    ft_strlcpy.c         ft_memcmpext.c\
-		ft_lstadd_back.c   ft_lstclear.c        ft_lstiter.c  \
-		ft_lstmap.c        ft_lstsize.c         ft_lstadd_front.c  \
-		ft_lstdelone.c     ft_lstlast.c         ft_lstnew.c
+		ft_putchar_fd.c    ft_strlcpy.c         ft_memcmpext.c
 
 # OBJS = $(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 OBJS = $(SRC:.c=.o)
-
 
 all: $(NAME)
 
