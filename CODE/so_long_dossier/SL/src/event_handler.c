@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:09:04 by moni              #+#    #+#             */
-/*   Updated: 2024/05/29 12:12:48 by moni             ###   ########.fr       */
+/*   Updated: 2024/06/21 11:15:08 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,34 @@
 
 // int handle_keypress(int keycode, void *param)
 // {
-// 	t_game *game;
-// 	game = (t_game *)param;
+// 	t_map *map;
+// 	map = (t_map *)param;
 
 // 	if (keycode == KEY_UP)
-// 		move_player(game, UP);
+// 		move_player(map, UP);
 // 	else if (keycode == KEY_DOWN)
-// 		move_player(game, DOWN);
+// 		move_player(map, DOWN);
 // 	else if (keycode == KEY_LEFT)
-// 		move_player(game, LEFT);
+// 		move_player(map, LEFT);
 // 	else if (keycode == KEY_RIGHT)
-// 		move_player(game, RIGHT);
+// 		move_player(map, RIGHT);
 // 	else if (keycode == KEY_ESC)
 // 		exit(0);
 // 	return (0);
 // }
-// int key_hook(int keycode, t_game *game)
-// {
-// 	printf("Keycode: %d\n", keycode);
-// 	if (keycode == 65307)
-// 	{
-// 		mlx_destroy_window(game->mlx, game->win);
-// 		exit(0);
-// 	}
-// 	return (0);
-// }
 
-// key_hook, key_press, key_pressed, key_released: Gestion des entrées clavier.
-// close_win, close_game: Gère la fermeture de la fenêtre et la sortie du jeu.
+int	close_win(int keycode, t_map *map)
+{
+	// printf("Keycode: %d\n", keycode);
+	// if (keycode == 65307)//
+	// {
+	// 	mlx_destroy_window(map->mlx, map->win);
+	// 	exit(0);
+	// }
+	mlx_destroy_window(map->mlx, map->win);
+	exit(0);
+	return (0);
+}
+
+// // key_hook, key_press, key_pressed, key_released: Gestion des entrées clavier.
+// // close_win, close_map: Gère la fermeture de la fenêtre et la sortie du jeu.

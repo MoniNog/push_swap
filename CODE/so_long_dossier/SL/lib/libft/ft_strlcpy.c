@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:34:25 by moni              #+#    #+#             */
-/*   Updated: 2024/05/07 14:13:47 by moni             ###   ########.fr       */
+/*   Updated: 2024/06/07 11:01:23 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 // Copie une chaîne de caractères d'une source vers une destination en évitant 
 // les problèmes de dépassement de mémoire.
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+size_t	ft_strlcpy(char *dest, char *src, size_t size)
 {
 	size_t	i;
 	size_t	src_len;

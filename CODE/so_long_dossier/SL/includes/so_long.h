@@ -6,14 +6,14 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 14:38:06 by moni              #+#    #+#             */
-/*   Updated: 2024/05/29 11:42:15 by moni             ###   ########.fr       */
+/*   Updated: 2024/06/21 11:54:47 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../lib/mlx_LINUX/mlx_int.h"
+# include "../lib/mlx_LINUX/mlx.h"
 # include "get_next_line.h"
 # include "ft_printf.h"
 # include "libft.h"
@@ -23,12 +23,45 @@
 # include <sys/types.h>
 # include <stdio.h>
 
-typedef struct s_map
+typedef struct s_coor
 {
-	t_list	*lines;
-	int		width;
-	int		height;
-}			t_map;
+	int		x;
+	int		y;
+}			t_coor;
+
+typedef struct	s_render{
+	void		*img;
+	char		*addr;
+	int			bits_per_pixel;
+	int			line_length;
+	int			endian;// ordre dans lequel les octets sont disposes
+}				t_render;
+
+typedef struct	s_map
+{
+	t_list		*lines;
+	int			width;
+	int			height;
+	char		**array;
+	char		**testissue;// for check if win possible
+	int			coinmax;// number of coins in the map for compare with win possible
+	t_coor		start;// pos of P
+	t_coor		exit;// pos of E
+	t_render	*render;
+	void		*mlx;
+	void		*win;
+}				t_map;
+
+
+// sizeof(map) ?
+// = sizeof(void *)
+//	sizeof(int)
+//	sizeof(int)
+
+// malloc = (sizeof)
+// pointer 
+
+// map->height = 4253325 + sizeof(void *) + sizeof(height) 
 
 # define KEY_ESC 65307
 # define KEY_UP 65362
@@ -36,14 +69,17 @@ typedef struct s_map
 # define KEY_LEFT 65361
 # define KEY_RIGHT 65363;
 
-// t_list	*ft_lstnew(void *content);
-// void	ft_lstadd_back(t_list **lst, t_list *new);
-// void	ft_lstiter(t_list *lst, void (*f)(void *));
 void	print_content(void *content);
 void	get_map(t_map *map, char *mapname);
 int		count_height_map(t_map *map);
-int		count_char(t_list *map);
+int		count_char(t_map *map);
 int		ft_memcmpext(const void *s1, char *extension);
 int		check_char(t_list *map);
+int		borders_are_walls(t_map *map);
+void	get_array(t_map *map);
+void	start_and_exit_pos(t_map *map);
+int		close_win(int keycode, t_map *map);
+t_map	*game_init(char *mapname, t_map * map);
+
 
 #endif

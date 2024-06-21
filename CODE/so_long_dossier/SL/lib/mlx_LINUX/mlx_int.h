@@ -135,6 +135,7 @@ int				mlx_int_get_visual(t_xvar *xvar);
 int				mlx_int_set_win_event_mask(t_xvar *xvar);
 int				mlx_int_str_str_cote(char *str,char *find,int len);
 int				mlx_int_str_str(char *str,char *find,int len);
-
+// void			*mlx_new_window(t_xvar *xvar,int size_x,int size_y,char *title);
+// int				mlx_loop(t_xvar *xvar)
 
 #endif

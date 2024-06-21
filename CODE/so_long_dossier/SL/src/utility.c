@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:09:42 by moni              #+#    #+#             */
-/*   Updated: 2024/05/29 12:16:45 by moni             ###   ########.fr       */
+/*   Updated: 2024/06/14 11:49:02 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,38 @@ int	count_height_map(t_map *map)
 void	print_content(void *content)
 {
 	ft_printf("%s", (char *)content);
+}
+
+void	start_and_exit_pos(t_map *map)
+{
+	int		row;//y
+	int		col;//x
+	//t_coor	P;
+	//t_coor	E;
+
+	row = 0;
+	while (row < map->height)
+	{
+		col = 0;
+		while (col < map->width)
+		{
+//			if (a la pos ou je suis == 'P')
+			if (map->array[row][col] == 'P')
+			{
+				map->start.x = col; // enregistrer la position de p dans la struct comme pos de depart.
+				map->start.y = row; // enregistrer la position de p dans la struct comme pos de depart.
+			}
+			if (map->array[row][col] == 'E')
+			{
+				map->exit.x = col;
+				map->start.y = row;
+				 // enregistrer la position de e dans la struct comme sortie.
+			}
+			col++;
+		}	
+		row++;
+	}
+	return;
 }
 
 // ft_error, ft_check_win, ft_step, check_collide, check_border, check_all_char,

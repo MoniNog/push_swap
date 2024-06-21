@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:09:38 by moni              #+#    #+#             */
-/*   Updated: 2024/05/29 12:16:49 by moni             ###   ########.fr       */
+/*   Updated: 2024/06/21 10:49:45 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,3 +24,22 @@
 // 	return NULL;
 // }
 // // set_img: Charge les textures utilisées dans le jeu.
+
+// #include <mlx.h>
+
+// typedef struct	s_data {
+// 	void	*img;
+// 	char	*addr;
+// 	int		bits_per_pixel;
+// 	int		line_length;
+// 	int		endian;
+// }				t_data;
+
+// void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+// {
+// 	char	*dst;
+
+// 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+// 	*(unsigned int*)dst = color;
+// }
+

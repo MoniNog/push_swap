@@ -6,27 +6,56 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:09:34 by moni              #+#    #+#             */
-/*   Updated: 2024/05/29 12:16:54 by moni             ###   ########.fr       */
+/*   Updated: 2024/06/21 11:25:31 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* Gestion de tout le rendu graphique du jeu. */
-#include "../includes/so_long.h"
-// void draw_map(t_game *game, int map[MAX_WIDTH][MAX_WIDTH], int rows, int cols)
-// {
-// 	int i;
-// 	int j;
-// 	void *img;
+// #include "../includes/so_long.h"
 
-// 	i = 0;
-// 	while (i < rows)
-// 	{
-// 		j = 0;
-// 		while (j < cols)
-// 		{
-// 			img = select_image(map[i][j], game);
-// 			if (img != NULL)
-// 			{
+// int	create_trgb(int t, int r, int g, int b)
+// {
+// 	return (t << 24 | r << 16 | g << 8 | b);
+// }
+
+// int	get_t(int trgb)
+// {
+// 	return ((trgb >> 24) & 0xFF);
+// }
+
+// int	get_r(int trgb)
+// {
+// 	return ((trgb >> 16) & 0xFF);
+// }
+
+// int	get_g(int trgb)
+// {
+// 	return ((trgb >> 8) & 0xFF);
+// }
+
+// int	get_b(int trgb)
+// {
+// 	return (trgb & 0xFF);
+// }
+
+
+
+
+// // void draw_map(t_game *game, int map[MAX_WIDTH][MAX_WIDTH], int rows, int cols)
+// // {
+// // 	int i;
+// // 	int j;
+// // 	void *img;
+
+// // 	i = 0;
+// // 	while (i < rows)
+// // 	{
+// // 		j = 0;
+// // 		while (j < cols)
+// // 		{
+// // 			img = select_image(map[i][j], game);
+// // 			if (img != NULL)
+// // 			{
 // 				x = j * TILE_SIZE;
 // 				y = i * TILE_SIZE;
 // 				mlx_put_image_to_window(game->mlx, game->win, img, x, y);
