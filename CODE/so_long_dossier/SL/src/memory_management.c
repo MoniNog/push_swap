@@ -6,12 +6,14 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:09:31 by moni              #+#    #+#             */
-/*   Updated: 2024/05/29 12:16:56 by moni             ###   ########.fr       */
+/*   Updated: 2024/06/23 19:05:19 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* Gestion de la libération de la mémoire pour différentes structures. */
 #include "../includes/so_long.h"
+
+
 // void	free_map(char **map)
 // {
 // 	int	i;

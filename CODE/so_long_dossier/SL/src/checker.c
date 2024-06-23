@@ -6,10 +6,11 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:12:43 by moni              #+#    #+#             */
-/*   Updated: 2024/06/14 18:27:23 by moni             ###   ########.fr       */
+/*   Updated: 2024/06/23 19:06:35 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// Fonctions permettant de verifier si la carte est valide avant de lancer le jeu
 #include "../includes/so_long.h"
 
 int		borders_are_walls(t_map *map)
@@ -97,14 +98,7 @@ int		count_char(t_map *map)
 		return (0);
 }
 
-// int		recursive(t_map *map, char **flag(tableau 2d), int x, int y)
-// si xy n-est pas encore check (flag)
-// 	flag xy afin de ne par refaire la meme coordonnee
-// 	si autour de ce point les sols ou collectibles
-// 		recursive(x,y)
-// 	si E stop - return ok
-	
-
+//		PSEUDO-CODE - INSTRUCTIONS
 // cherche P
 // identifier les 0/C autour de telle position -> fill
 // pour chaque coor valide, refill (recursif) refaire ca...
@@ -113,12 +107,10 @@ int		count_char(t_map *map)
 // transformer en mur quand cest check !! faire une copie
 // faire un deuxieme tableau servant de condition pour tester si deja check ou pas avant de relancer la recursive
 
-
-
+//			PATH_OK
 // static int	path_ok(int y, int x, int *coin, t_game *info)
 // {
 // 	int	res;
-
 // 	res = 0;
 // 	if (y >= info->y || x >= info->x || y < 0 || x < 0
 // 		|| info->map_copy[y][x] == '1' || info->map_copy[y][x] == '2')
@@ -132,31 +124,27 @@ int		count_char(t_map *map)
 // 	res += path_ok(y - 1, x, coin, info);
 // 	res += path_ok(y, x + 1, coin, info);
 // 	res += path_ok(y, x - 1, coin, info);
+// 	return (res);
+// }
 
-// // 	return (res);
-// // }
-
-// int	check_path : // if (c == map.coinmax)
-// 		return (1);
-
+//			FILL LOGIC
 // void	fill(int x, int y, int c, t_map **start, t_map *mapcopy)
 // //							 ??
 // {
 // 	mapcopy = map->testissue;
-
 // 	map.start == '2';
 // 	// dans mapcopy je pars depuis la pos start
-
 // depuis map.start
 // si x±1 ou y±1 == 0		devient 2					FILL
 // si x±1 ou y±1 == 1		STOP
 // si x±1 ou y±1 == C		c++		compter pour comparer ensuite avec coinmax. 
 // 								puis devient 2		FILL (c+1)
+							// int	check_path : // if (c == map.coinmax)
+							// 		return (1);
 // si x±1 ou y±1 == E		sortie possible		
 // 										c collecter =?= coinmax -> a mettre dans la fonction path_ok
 // 												RETURN 1	SUCCESS POSSIBLE
 // 						mais comment continuer a checker sans ommettre de C ?
 // 						check si jai recup tous les C si oui return 1
-	
 // 	return (0);
 // }

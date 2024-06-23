@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 14:38:06 by moni              #+#    #+#             */
-/*   Updated: 2024/06/21 11:54:47 by moni             ###   ########.fr       */
+/*   Updated: 2024/06/23 18:59:07 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,6 @@ typedef struct s_coor
 	int		y;
 }			t_coor;
 
-typedef struct	s_render{
-	void		*img;
-	char		*addr;
-	int			bits_per_pixel;
-	int			line_length;
-	int			endian;// ordre dans lequel les octets sont disposes
-}				t_render;
-
 typedef struct	s_map
 {
 	t_list		*lines;
@@ -47,21 +39,10 @@ typedef struct	s_map
 	int			coinmax;// number of coins in the map for compare with win possible
 	t_coor		start;// pos of P
 	t_coor		exit;// pos of E
-	t_render	*render;
 	void		*mlx;
 	void		*win;
+	void		*img;
 }				t_map;
-
-
-// sizeof(map) ?
-// = sizeof(void *)
-//	sizeof(int)
-//	sizeof(int)
-
-// malloc = (sizeof)
-// pointer 
-
-// map->height = 4253325 + sizeof(void *) + sizeof(height) 
 
 # define KEY_ESC 65307
 # define KEY_UP 65362

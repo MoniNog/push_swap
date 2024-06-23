@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:09:19 by moni              #+#    #+#             */
-/*   Updated: 2024/06/21 11:14:23 by moni             ###   ########.fr       */
+/*   Updated: 2024/06/23 19:04:19 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 int	main(int argc, char **argv)
 {
 	t_map	carte;
-	//t_map	*map;
 
 	carte.lines = NULL;
 	carte.width = 0;

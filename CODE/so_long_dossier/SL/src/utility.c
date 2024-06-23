@@ -6,12 +6,11 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:09:42 by moni              #+#    #+#             */
-/*   Updated: 2024/06/14 11:49:02 by moni             ###   ########.fr       */
+/*   Updated: 2024/06/23 19:05:41 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* Fonctions utilitaires pour le jeu, telles que la gestion des erreurs et la validation. */
-
 #include "../includes/so_long.h"
 
 int	count_height_map(t_map *map)

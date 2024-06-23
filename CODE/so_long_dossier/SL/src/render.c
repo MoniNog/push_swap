@@ -6,12 +6,13 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:09:34 by moni              #+#    #+#             */
-/*   Updated: 2024/06/21 11:25:31 by moni             ###   ########.fr       */
+/*   Updated: 2024/06/23 19:05:23 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* Gestion de tout le rendu graphique du jeu. */
-// #include "../includes/so_long.h"
+ #include "../includes/so_long.h"
+
 
 // int	create_trgb(int t, int r, int g, int b)
 // {

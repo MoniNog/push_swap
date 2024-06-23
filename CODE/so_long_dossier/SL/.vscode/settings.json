@@ -3,7 +3,13 @@
 		"get_next_line.h": "c",
 		"libft.h": "c",
 		"stdio.h": "c",
-		"so_long.h": "c"
+		"so_long.h": "c",
+		"array": "c",
+		"string_view": "c",
+		"initializer_list": "c",
+		"utility": "c",
+		"random": "c",
+		"mlx_int.h": "c"
 	},
 	"C_Cpp.errorSquiggles": "disabled"
 }
