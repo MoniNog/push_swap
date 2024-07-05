@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:12:43 by moni              #+#    #+#             */
-/*   Updated: 2024/06/23 19:06:35 by moni             ###   ########.fr       */
+/*   Updated: 2024/07/05 11:49:32 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,60 +91,67 @@ int		count_char(t_map *map)
 	}
 	if (p == 1 && e == 1 && c > 0)
 	{
-		map->coinmax = c;
+		map->max_coin = c;
 		return (1);
 	}
 	else
 		return (0);
 }
 
-//		PSEUDO-CODE - INSTRUCTIONS
-// cherche P
-// identifier les 0/C autour de telle position -> fill
-// pour chaque coor valide, refill (recursif) refaire ca...
-// jusqua trouver E
-// !! appels infinis ne pas recheck les cases deja checke, comment marquer les cases ? flag ?
-// transformer en mur quand cest check !! faire une copie
-// faire un deuxieme tableau servant de condition pour tester si deja check ou pas avant de relancer la recursive
+static int	path_ok(int x, int y, t_map *info)
+{
+	int	res;
 
-//			PATH_OK
-// static int	path_ok(int y, int x, int *coin, t_game *info)
-// {
-// 	int	res;
-// 	res = 0;
-// 	if (y >= info->y || x >= info->x || y < 0 || x < 0
-// 		|| info->map_copy[y][x] == '1' || info->map_copy[y][x] == '2')
-// 		return (0);
-// 	else if (info->map_copy[y][x] == 'E')
-// 		return (1);
-// 	else if (info->map_copy[y][x] == 'C')
-// 		(*coin)++;
-// 	info->map_copy[y][x] = '2';
-// 	res += path_ok(y + 1, x, coin, info);
-// 	res += path_ok(y - 1, x, coin, info);
-// 	res += path_ok(y, x + 1, coin, info);
-// 	res += path_ok(y, x - 1, coin, info);
-// 	return (res);
-// }
+	res = 0;
+	if (y >= info->height || x >= info->width || y < 0 || x < 0
+		|| info->map_copy[y][x] == '1' || info->map_copy[y][x] == '2')
+		return (0);
+	else if (info->map_copy[y][x] == 'E')
+		return (1);
+	else if (info->map_copy[y][x] == 'C')
+		info->coin++;
+	info->map_copy[y][x] = '2';
+	res += path_ok(x, y - 1, info);
+	res += path_ok(x, y + 1, info);
+	res += path_ok(x + 1, y, info);
+	res += path_ok(x - 1, y, info);
+	return (res);
+}
 
-//			FILL LOGIC
-// void	fill(int x, int y, int c, t_map **start, t_map *mapcopy)
-// //							 ??
+int	parse_map(t_map *info)
+{
+	info->coin = 0;
+	if (path_ok(info->player.x, info->player.y, info) && info->coin == info->max_coin)
+		return (1);
+	return (0);
+}
+
+
+// int	ft_error(int error)
 // {
-// 	mapcopy = map->testissue;
-// 	map.start == '2';
-// 	// dans mapcopy je pars depuis la pos start
-// depuis map.start
-// si x±1 ou y±1 == 0		devient 2					FILL
-// si x±1 ou y±1 == 1		STOP
-// si x±1 ou y±1 == C		c++		compter pour comparer ensuite avec coinmax. 
-// 								puis devient 2		FILL (c+1)
-							// int	check_path : // if (c == map.coinmax)
-							// 		return (1);
-// si x±1 ou y±1 == E		sortie possible		
-// 										c collecter =?= coinmax -> a mettre dans la fonction path_ok
-// 												RETURN 1	SUCCESS POSSIBLE
-// 						mais comment continuer a checker sans ommettre de C ?
-// 						check si jai recup tous les C si oui return 1
+// 	if (error == 1)
+// 		ft_printf("File error: ouverture impossible de fichier\n");
+// 	else if (error == 2)
+// 		ft_printf("Map error.\n");
+// 	else if (error == 3)
+// 		ft_printf("Map error: aucun chemin possible.\n");
+// 	else if (error == 4)
+// 		ft_printf("Map error: forme non conforme.\n");
+// 	else if (error == 5)
+// 		ft_printf("Map error: taille non conforme.\n");
+// 	else if (error == 6)
+// 		ft_printf("Map error: les murs doivent être seulement des '1'.\n");
+// 	else if (error == 7)
+// 		ft_printf("Map error: syntaxe ('1', '0', 'E', 'F', 'P' ou 'x').\n");
+// 	else if (error == 8)
+// 		ft_printf("Map error: 1 player, 1 exit, min. 1 item.\n");
+// 	else if (error == 9)
+// 		ft_printf("Malloc error.\n");
+// 	else if (error == 10)
+// 		ft_printf("Map error: item inatteignable.\n");
+// 	else if (error == 11)
+// 		ft_printf("File error: extension non reconnue.\n");
 // 	return (0);
 // }
+
+// 		return (ft_error(8));

@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:09:27 by moni              #+#    #+#             */
-/*   Updated: 2024/06/14 12:27:34 by moni             ###   ########.fr       */
+/*   Updated: 2024/07/02 17:24:23 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,15 +68,15 @@ void	get_array(t_map *map)
 	lst = map->lines;
 
 	map->array = malloc(h * sizeof(char *));
-	map->testissue = malloc(h * sizeof(char *));
+	map->map_copy = malloc(h * sizeof(char *));
 	if (!map->array)
 		return ;
 
 	while (i < h)
 	{
 		map->array[i] = (char *)malloc((l));
-		map->testissue[i] = (char *)malloc((l));
-		if (!map->array[i] || !map->testissue[i])
+		map->map_copy[i] = (char *)malloc((l));
+		if (!map->array[i] || !map->map_copy[i])
 		// if (!map->array[i] )
 			return ;
 		i++;
@@ -86,25 +86,25 @@ void	get_array(t_map *map)
 	while (i < h)
 	{
 		ft_strlcpy(map->array[i], lst->content, l + 1);
-		ft_strlcpy(map->testissue[i], lst->content, l + 1);
+		ft_strlcpy(map->map_copy[i], lst->content, l + 1);
 		i++;
 		lst = lst->next; // equivalent de i++ pour liste chainee
 	}
 // PRINT ARRAY FOR CHECKING
-	i = 0;
-	while (i < h)
-	{
-		ft_printf("\narray : %s", map->array[i]);
-		i++;
-	}
+	// i = 0;
+	// while (i < h)
+	// {
+	// 	ft_printf("\narray : %s", map->array[i]);
+	// 	i++;
+	// }
 
-	ft_printf("\n\n");
+	// ft_printf("\n\n");
 
-	i = 0;
-	while (i < h)
-	{
-		ft_printf("\narray : %s", map->testissue[i]);
-		i++;
-	}
+	// i = 0;
+	// while (i < h)
+	// {
+	// 	ft_printf("\narray : %s", map->map_copy[i]);
+	// 	i++;
+	// }
 	return ;
 }

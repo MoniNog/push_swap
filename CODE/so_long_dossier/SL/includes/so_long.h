@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 14:38:06 by moni              #+#    #+#             */
-/*   Updated: 2024/06/23 18:59:07 by moni             ###   ########.fr       */
+/*   Updated: 2024/07/05 18:43:50 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,40 @@ typedef struct s_coor
 	int		y;
 }			t_coor;
 
+typedef struct s_img
+{
+	void		*grass;
+	void		*girl;
+	void		*tree;
+	void		*flower;
+	void		*basket;
+}				t_img;
+
 typedef struct	s_map
 {
 	t_list		*lines;
 	int			width;
 	int			height;
+	int			x;
+	int			y;
 	char		**array;
-	char		**testissue;// for check if win possible
-	int			coinmax;// number of coins in the map for compare with win possible
-	t_coor		start;// pos of P
+	char		**map_copy;// for check if win possible
+	int			max_coin;// number of coins in the map for compare with win possible
+	int			coin;
+	t_coor		player;// pos of P
 	t_coor		exit;// pos of E
 	void		*mlx;
 	void		*win;
-	void		*img;
+	t_img		*img;
+	t_coor		coor;
 }				t_map;
+
 
 # define KEY_ESC 65307
 # define KEY_UP 65362
 # define KEY_DOWN 65364
 # define KEY_LEFT 65361
-# define KEY_RIGHT 65363;
+# define KEY_RIGHT 65363
 
 void	print_content(void *content);
 void	get_map(t_map *map, char *mapname);
@@ -60,7 +74,12 @@ int		borders_are_walls(t_map *map);
 void	get_array(t_map *map);
 void	start_and_exit_pos(t_map *map);
 int		close_win(int keycode, t_map *map);
-t_map	*game_init(char *mapname, t_map * map);
+t_map	*game_init(char *mapname, t_map *map);
+int		parse_map(t_map *info);
+int handle_keypress(int keycode, void *param);
+void	move_player(t_map *map, int keypress);
+void	draw_map(t_map *map);
+
 
 
 #endif

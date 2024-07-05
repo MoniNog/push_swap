@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:09:42 by moni              #+#    #+#             */
-/*   Updated: 2024/06/23 19:05:41 by moni             ###   ########.fr       */
+/*   Updated: 2024/07/05 11:49:32 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ void	start_and_exit_pos(t_map *map)
 {
 	int		row;//y
 	int		col;//x
-	//t_coor	P;
-	//t_coor	E;
+
 
 	row = 0;
 	while (row < map->height)
@@ -49,13 +48,13 @@ void	start_and_exit_pos(t_map *map)
 //			if (a la pos ou je suis == 'P')
 			if (map->array[row][col] == 'P')
 			{
-				map->start.x = col; // enregistrer la position de p dans la struct comme pos de depart.
-				map->start.y = row; // enregistrer la position de p dans la struct comme pos de depart.
+				map->player.x = col; // enregistrer la position de p dans la struct comme pos de depart.
+				map->player.y = row; // enregistrer la position de p dans la struct comme pos de depart.
 			}
 			if (map->array[row][col] == 'E')
 			{
 				map->exit.x = col;
-				map->start.y = row;
+				map->exit.y = row;
 				 // enregistrer la position de e dans la struct comme sortie.
 			}
 			col++;

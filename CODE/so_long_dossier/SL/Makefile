@@ -1,10 +1,10 @@
 NAME = boom
 CC = gcc
-CFLAGS = -Wall -Wextra  -I./lib/mlx_LINUX -I./lib/libft #-Werror
+CFLAGS = -Wall -g3 -fsanitize=address -Wextra  -I./lib/mlx_LINUX -I./lib/libft #-Werror
 LIBFT_PATH = ./lib/libft
 MLX_PATH = ./lib/mlx_LINUX -lmlx
 LIBFT = -L$(LIBFT_PATH) -lft
-MLX = -L$(MLX_PATH) -lmlx -lXext -lX11 -lm -lbsd
+MLX = -L$(MLX_PATH) -lmlx -lXext -lX11 -lm -lbsd -g
 
 SRC = src/utility.c src/event_handler.c src/game_loop.c src/map_loader.c \
 	src/render.c src/game_init.c src/main.c src/memory_management.c\
