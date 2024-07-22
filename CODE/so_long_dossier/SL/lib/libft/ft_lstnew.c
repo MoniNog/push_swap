@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 15:40:29 by moni              #+#    #+#             */
-/*   Updated: 2024/05/29 11:38:06 by moni             ###   ########.fr       */
+/*   Updated: 2024/07/10 21:47:12 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list	*new_elem;
+	t_list	*tab;
 
-	new_elem = (t_list *)malloc(sizeof(t_list));
-	if (new_elem == NULL)
+	tab = malloc(sizeof(t_list));
+	if (tab == NULL)
 		return (NULL);
-	new_elem->content = content;
-	new_elem->next = NULL;
-	return (new_elem);
+	tab->content = content;
+	tab->next = NULL;
+	return (tab);
 }

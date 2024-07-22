@@ -6,12 +6,25 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:12:43 by moni              #+#    #+#             */
-/*   Updated: 2024/07/05 11:49:32 by moni             ###   ########.fr       */
+/*   Updated: 2024/07/22 12:46:55 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // Fonctions permettant de verifier si la carte est valide avant de lancer le jeu
 #include "../includes/so_long.h"
+int		checkers(t_map *map, char *mapname)
+{
+	if(ft_memcmpext(mapname, ".ber") != 1)
+		perror("\nError : Invalid map\nWrong extension\n");
+	if(count_char(map) != 1 || check_char(map->lines) != 1)
+		perror("\nError : Invalid map\nError char\n");
+	if(borders_are_walls(map) != 1)
+		perror("\nError : Invalid map\nBorders aren't all walls\n");
+	if(parse_map(map) != 1)
+		perror("\nError : Invalid map\nAny issue possible\n");
+	return (1);
+}
+//verifier dans les checkers pouruqoi le 2eme appel ne fonctionne pas. modification de la map une fois checke ?
 
 int		borders_are_walls(t_map *map)
 {

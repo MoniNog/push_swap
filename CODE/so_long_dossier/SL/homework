@@ -1,0 +1,39 @@
+DONE		rapetissir images
+DONNNNNE :)		reflechir a comment quitter panier sans quil disparaisse
+DONE		pouvoir fermer la fenetre en cliquant sur x
+DONE		changer les touches haut bas gauche droite par asdw
+		image win + grande
+		print nombre de mouvements sur le shell
+OK		La gestion de la fenêtre doit rester fluide (changer de fenêtre, la réduire, etc.)
+DONE	liberer memoire
+DONE	fin du jeu
+
+		quand le jeu est gagne manque de ne pas pouvoir reprendre le jeu
+
+
+
+//			ELISE :
+	// map.render// variable de type t_map
+	// map->render// pointeur vers render (path)
+
+	// y = 0;
+	// while(y <= map->height)
+	// {
+	// 	x = 0
+	// 	while(x <= map->width)
+	// 	{
+	// 		x++;
+	// 	}
+	// 	y++;
+	// }
+
+
+	void	move_player(t_map *map, int keypress)
+{
+	//int dest_x;
+	//int dest_y;
+	//if keypress => modifier destination
+	//if dest == '1' => return ()pas de modif
+	//if dest == 'C' => coin-- 
+	//après les if : player = '0', dest = 'P'
+	
