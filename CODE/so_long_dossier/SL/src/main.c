@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:09:19 by moni              #+#    #+#             */
-/*   Updated: 2024/07/22 14:27:30 by moni             ###   ########.fr       */
+/*   Updated: 2024/07/26 12:33:56 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,17 @@ int	main(int argc, char **argv)
 	map->lines = NULL;
 	map->width = 0;
 	map->height = 0;
-	get_map(map, argv[1]);
+	map->img = NULL;
+	if (get_map(map, argv[1]) == 1)
+	{
+		free(map);
+		return (0);
+	}
 	get_array(map, map->width, map->height, map->lines);
 	start_and_exit_pos(map);
 	if (argc == 2 && checkers(map, argv[1]) == 1)
 		game_init("So_long by monoguei (ce fut long en effet !)", map);
+	else
+		ft_free_all(map);
 	return (0);
 }

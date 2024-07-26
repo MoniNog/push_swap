@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 15:40:29 by moni              #+#    #+#             */
-/*   Updated: 2024/07/10 21:47:12 by moni             ###   ########.fr       */
+/*   Updated: 2024/07/26 12:23:51 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*tab;
 
+	if (!content)
+		return (NULL);
 	tab = malloc(sizeof(t_list));
 	if (tab == NULL)
 		return (NULL);

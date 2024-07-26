@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 14:38:06 by moni              #+#    #+#             */
-/*   Updated: 2024/07/22 13:10:03 by moni             ###   ########.fr       */
+/*   Updated: 2024/07/26 12:13:52 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct	s_map
 	int			mouvement;
 	int			win_width;
 	int			win_height;
+	int			game_over;
 }				t_map;
 
 
@@ -78,7 +79,7 @@ typedef struct	s_map
 
 
 void	print_content(void *content);
-void	get_map(t_map *map, char *mapname);
+int		get_map(t_map *map, char *mapname);
 int		count_height_map(t_map *map);
 int		count_char(t_map *map);
 int		ft_memcmpext(const void *s1, char *extension);
@@ -98,6 +99,8 @@ int		close_win(t_map *map);
 void	ft_free_all(t_map *map);
 void	ft_step(t_map *map);
 void	victory(t_map *map);
+void	free_array(t_map *map);
+
 
 
 

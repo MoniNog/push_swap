@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:09:09 by moni              #+#    #+#             */
-/*   Updated: 2024/07/22 14:42:56 by moni             ###   ########.fr       */
+/*   Updated: 2024/07/26 11:49:44 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 void	key_press_up(t_map *map)
 {
-	if(map->coin == 0 && (map->player.x == map->exit.x && map->player.y - 1 == map->exit.y))
+	if (map->coin == 0 && (map->player.x == map->exit.x &&
+		map->player.y - 1 == map->exit.y))
 		{
 			victory(map);
 			return ;
@@ -39,7 +40,8 @@ void	key_press_up(t_map *map)
 
 void	key_press_down(t_map *map)
 {
-	if(map->coin == 0 && (map->player.x == map->exit.x && map->player.y + 1 == map->exit.y))
+	if(map->coin == 0 && (map->player.x == map->exit.x &&
+		map->player.y + 1 == map->exit.y))
 		{
 			victory(map);
 			return ;
@@ -62,7 +64,8 @@ void	key_press_down(t_map *map)
 
 void	key_press_right(t_map *map)
 {
-	if(map->coin == 0 && (map->player.x == map->exit.x + 1 && map->player.y == map->exit.y))
+	if (map->coin == 0 && (map->player.x + 1 == map->exit.x
+		&& map->player.y == map->exit.y))
 	{
 		victory(map);
 		return ;
@@ -72,17 +75,18 @@ void	key_press_right(t_map *map)
 	else
 		map->array[map->player.y][map->player.x] = '0';
 	map->player.x = map->player.x + 1;
-	if(map->array[map->player.y][map->player.x] == 'C')
+	if (map->array[map->player.y][map->player.x] == 'C')
 		map->coin--;
 	map->array[map->player.y][map->player.x] = 'P';
-		map->mouvement++;
+	map->mouvement++;
 	draw_map(map);
 	return ;
 }
 
 void	key_press_left(t_map *map)
 {
-	if(map->coin == 0 && (map->player.x == map->exit.x - 1 && map->player.y == map->exit.y))
+	if (map->coin == 0
+		&& (map->player.x - 1 == map->exit.x && map->player.y == map->exit.y))
 	{
 		victory(map);
 		return ;
@@ -92,22 +96,28 @@ void	key_press_left(t_map *map)
 	else
 		map->array[map->player.y][map->player.x] = '0';
 	map->player.x = map->player.x - 1;
-	if(map->array[map->player.y][map->player.x] == 'C')
+	if (map->array[map->player.y][map->player.x] == 'C')
 		map->coin--;
 	map->array[map->player.y][map->player.x] = 'P';
-		map->mouvement++;
+	map->mouvement++;
 	draw_map(map);
 	return ;
 }
 
 void	move_player(t_map *map, int keypress)
 {
-	if(keypress == KEY_UP && map->array[map->player.y - 1][map->player.x] != '1')
+	if (map->game_over == 1)
+		return ;
+	if (keypress == KEY_UP
+		&& map->array[map->player.y - 1][map->player.x] != '1')
 		key_press_up(map);
-	else if(keypress == KEY_DOWN && map->array[map->player.y + 1][map->player.x] != '1')
+	else if (keypress == KEY_DOWN
+		&& map->array[map->player.y + 1][map->player.x] != '1')
 		key_press_down(map);
-	else if(keypress == KEY_RIGHT && map->array[map->player.y][map->player.x + 1] != '1')
+	else if (keypress == KEY_RIGHT
+		&& map->array[map->player.y][map->player.x + 1] != '1')
 		key_press_right(map);
-	else if(keypress == KEY_LEFT && map->array[map->player.y][map->player.x - 1] != '1')
+	else if (keypress == KEY_LEFT
+		&& map->array[map->player.y][map->player.x - 1] != '1')
 		key_press_left(map);
 }

@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:08:54 by moni              #+#    #+#             */
-/*   Updated: 2024/07/22 14:44:08 by moni             ###   ########.fr       */
+/*   Updated: 2024/07/26 10:57:12 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 void	game_init(char *mapname, t_map *map)
 {
+	map->game_over = 0;
 	map->mouvement = 0;
 	map->mlx = mlx_init();
 	mlx_get_screen_size(map->mlx, &map->win_width, &map->win_height);
@@ -30,14 +31,15 @@ void	game_init(char *mapname, t_map *map)
 	mlx_hook(map->win, 2, 1L<<0, handle_keypress, map);
 	mlx_hook(map->win, 17, 0, close_win, &map);
 	mlx_loop(map->mlx);
-
 }
 
 void	victory(t_map *map)
 {
 	mlx_put_image_to_window(map->mlx, map->win, map->img->win_game, 0, 0);
-	ft_printf("Nombre de deplacement : %i\n", map->mouvement);
-	
+	ft_printf("------------------------------------------\n", map->mouvement);
+	ft_printf("\tNombre de deplacement : %i\n", map->mouvement);
+	ft_printf("------------------------------------------\n", map->mouvement);
+	map->game_over = 1;
 }
 
 
