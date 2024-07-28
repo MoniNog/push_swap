@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:09:42 by moni              #+#    #+#             */
-/*   Updated: 2024/07/26 12:01:01 by moni             ###   ########.fr       */
+/*   Updated: 2024/07/28 14:25:41 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,10 @@ int	count_height_map(t_map *map)
 	return (i);
 }
 
-void	print_content(void *content)
-{
-	ft_printf("%s", (char *)content);
-}
-
 void	start_and_exit_pos(t_map *map)
 {
 	int	row;
 	int	col;
-
 
 	row = 0;
 	while (row < map->height)
@@ -61,3 +55,31 @@ void	start_and_exit_pos(t_map *map)
 	return ;
 }
 
+int	path_ok(int x, int y, t_map *map)
+{
+	int	res;
+
+	res = 0;
+	if (y >= map->height || x >= map->width || y < 0 || x < 0
+		|| map->map_copy[y][x] == '1' || map->map_copy[y][x] == '2')
+		return (0);
+	else if (map->map_copy[y][x] == 'E')
+		return (1);
+	else if (map->map_copy[y][x] == 'C')
+		map->coin++;
+	map->map_copy[y][x] = '2';
+	res += path_ok(x, y - 1, map);
+	res += path_ok(x, y + 1, map);
+	res += path_ok(x + 1, y, map);
+	res += path_ok(x - 1, y, map);
+	return (res);
+}
+
+int	parse_map(t_map *map)
+{
+	map->coin = 0;
+	if (path_ok(map->player.x, map->player.y, map)
+		&& map->coin == map->max_coin)
+		return (1);
+	return (0);
+}

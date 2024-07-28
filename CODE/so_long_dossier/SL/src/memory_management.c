@@ -6,13 +6,12 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:09:31 by moni              #+#    #+#             */
-/*   Updated: 2024/07/26 12:13:52 by moni             ###   ########.fr       */
+/*   Updated: 2024/07/27 17:59:07 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* Gestion de la libération de la mémoire pour différentes structures. */
 #include "../includes/so_long.h"
-
 
 void	free_array(t_map *map)
 {
@@ -32,21 +31,21 @@ void	free_array(t_map *map)
 void	ft_free_all(t_map *map)
 {
 	ft_lstclear(&(map->lines), free);
-	if (map->img)
+	if (map->i)
 	{
-		if (map->img->tree)
-			mlx_destroy_image(map->mlx, map->img->tree);
-		if (map->img->grass)
-			mlx_destroy_image(map->mlx, map->img->grass);
-		if (map->img->girl)
-			mlx_destroy_image(map->mlx, map->img->girl);
-		if (map->img->flower)
-			mlx_destroy_image(map->mlx, map->img->flower);
-		if (map->img->basket)
-			mlx_destroy_image(map->mlx, map->img->basket);
-		if (map->img->win_game)
-			mlx_destroy_image(map->mlx, map->img->win_game);
-		free(map->img);
+		if (map->i->t)
+			mlx_destroy_image(map->mlx, map->i->t);
+		if (map->i->g)
+			mlx_destroy_image(map->mlx, map->i->g);
+		if (map->i->p)
+			mlx_destroy_image(map->mlx, map->i->p);
+		if (map->i->c)
+			mlx_destroy_image(map->mlx, map->i->c);
+		if (map->i->e)
+			mlx_destroy_image(map->mlx, map->i->e);
+		if (map->i->win_game)
+			mlx_destroy_image(map->mlx, map->i->win_game);
+		free(map->i);
 	}
 	free_array(map);
 	free(map);

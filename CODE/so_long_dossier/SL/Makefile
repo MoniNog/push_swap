@@ -9,7 +9,7 @@ MLX = -L$(MLX_PATH) -lmlx -lXext -lX11 -lm -lbsd -g
 
 SRC = src/utility.c src/event_handler.c src/game_loop.c src/map_loader.c \
 	src/render.c src/game_init.c src/main.c src/memory_management.c\
-	src/textures.c src/checker.c\
+	src/checker.c\
 	lib/libft/ft_lstnew.c lib/libft/ft_lstadd_front.c lib/libft/ft_lstmap.c\
 	lib/libft/ft_lstsize.c lib/libft/ft_lstlast.c lib/libft/ft_lstadd_back.c\
 	lib/libft/ft_lstdelone.c lib/libft/ft_lstclear.c lib/libft/ft_lstiter.c\

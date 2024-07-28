@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 14:38:06 by moni              #+#    #+#             */
-/*   Updated: 2024/07/26 12:13:52 by moni             ###   ########.fr       */
+/*   Updated: 2024/07/28 14:43:28 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,21 @@ typedef struct s_coor
 	int		y;
 }			t_coor;
 
-typedef struct s_img
+typedef struct s_i
 {
-	void		*grass;
-	void		*girl;
-	void		*tree;
-	void		*flower;
-	void		*basket;
+	void		*g;
+	void		*p;
+	void		*t;
+	void		*c;
+	void		*e;
 	void		*win_game;
 	int			img_height;
 	int			img_width;
 	int			img_heightwin;
 	int			img_widthwin;
-}				t_img;
+}				t_i;
 
-typedef struct	s_map
+typedef struct s_map
 {
 	t_list		*lines;
 	int			width;
@@ -51,21 +51,20 @@ typedef struct	s_map
 	int			x;
 	int			y;
 	char		**array;
-	char		**map_copy;// for check if win possible
-	int			max_coin;// number of coins in the map for compare with win possible
+	char		**map_copy;
+	int			max_coin;
 	int			coin;
-	t_coor		player;// pos of P
-	t_coor		exit;// pos of E
+	t_coor		player;
+	t_coor		exit;
 	void		*mlx;
 	void		*win;
-	t_img		*img;
+	t_i			*i;
 	t_coor		coor;
 	int			mouvement;
 	int			win_width;
 	int			win_height;
 	int			game_over;
 }				t_map;
-
 
 # define KEY_ESC 65307
 # define KEY_UP 119
@@ -77,7 +76,6 @@ typedef struct	s_map
 # define KEY_LEFTT 65361
 # define KEY_RIGHTT 65363
 
-
 void	print_content(void *content);
 int		get_map(t_map *map, char *mapname);
 int		count_height_map(t_map *map);
@@ -87,21 +85,21 @@ int		check_char(t_list *map);
 int		borders_are_walls(t_map *map);
 void	get_array(t_map *map, int l, int h, t_list *lst);
 void	start_and_exit_pos(t_map *map);
-// int		close_win(int keycode, t_map *map);
 void	game_init(char *mapname, t_map *map);
 int		parse_map(t_map *info);
 int		handle_keypress(int keycode, void *param);
 void	move_player(t_map *map, int keypress);
-void	draw_map(t_map *map);
+// void	draw_map(t_map *map);
+void	draw_map(t_map *map, int y);
 int		checkers(t_map *map, char *mapname);
-// int		close(int keycode, t_map *map);
 int		close_win(t_map *map);
 void	ft_free_all(t_map *map);
 void	ft_step(t_map *map);
 void	victory(t_map *map);
 void	free_array(t_map *map);
-
-
-
+int		parse_map(t_map *m);
+int		path_ok(int x, int y, t_map *m);
+void	draw_map2(t_map *m);
+void	draw_map1(t_map *m);
 
 #endif

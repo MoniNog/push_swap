@@ -6,41 +6,38 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:09:34 by moni              #+#    #+#             */
-/*   Updated: 2024/07/22 14:22:52 by moni             ###   ########.fr       */
+/*   Updated: 2024/07/28 14:28:43 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* Gestion de tout le rendu graphique du jeu. */
- #include "../includes/so_long.h"
+#include "../includes/so_long.h"
 
-void	draw_map(t_map *map)
+void	draw_map(t_map *m, int y)
 {
 	int		x;
-	int		y;
+	int		w;
+	int		h;
 
-	y = 0;
-	while(y < map->height)
+	w = m->i->img_width;
+	h = m->i->img_height;
+	while (y < m->height)
 	{
 		x = 0;
-		while(x < map->width)
+		while (x < m->width)
 		{
-			if(map->array[y][x] == '1')
-				mlx_put_image_to_window(map->mlx, map->win, map->img->tree, x * map->img->img_width, y * map->img->img_height);
-			if(map->array[y][x] == '0')
-				mlx_put_image_to_window(map->mlx, map->win, map->img->grass, x * map->img->img_width, y * map->img->img_height);
-			if(map->array[y][x] == 'P')
-				mlx_put_image_to_window(map->mlx, map->win, map->img->girl, x * map->img->img_width, y * map->img->img_height);
-			if(map->array[y][x] == 'E')
-				mlx_put_image_to_window(map->mlx, map->win, map->img->basket, x * map->img->img_width, y * map->img->img_height);
-			if(map->array[y][x] == 'C')
-				mlx_put_image_to_window(map->mlx, map->win, map->img->flower, x * map->img->img_width, y * map->img->img_height);
+			if (m->array[y][x] == '1')
+				mlx_put_image_to_window(m->mlx, m->win, m->i->t, x * w, y * h);
+			if (m->array[y][x] == '0')
+				mlx_put_image_to_window(m->mlx, m->win, m->i->g, x * w, y * h);
+			if (m->array[y][x] == 'P')
+				mlx_put_image_to_window(m->mlx, m->win, m->i->p, x * w, y * h);
+			if (m->array[y][x] == 'E')
+				mlx_put_image_to_window(m->mlx, m->win, m->i->e, x * w, y * h);
+			if (m->array[y][x] == 'C')
+				mlx_put_image_to_window(m->mlx, m->win, m->i->c, x * w, y * h);
 			x++;
 		}
 		y++;
 	}
 }
-
-// mlx_put_image_to_window
-// ft_render, render, core_render, render_other, render_background, render_down,
-// render_left, render_right, render_top, draw, draw_background, draw_hud, draw_hud_life,
-// draw_hud_mana, draw_hud_steps: Toutes les fonctions liées au rendu des différents composants à l'écran.

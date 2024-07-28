@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:09:19 by moni              #+#    #+#             */
-/*   Updated: 2024/07/26 12:33:56 by moni             ###   ########.fr       */
+/*   Updated: 2024/07/27 17:46:57 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 	map->lines = NULL;
 	map->width = 0;
 	map->height = 0;
-	map->img = NULL;
+	map->i = NULL;
 	if (get_map(map, argv[1]) == 1)
 	{
 		free(map);

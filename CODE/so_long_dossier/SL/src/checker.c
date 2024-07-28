@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:12:43 by moni              #+#    #+#             */
-/*   Updated: 2024/07/26 11:11:26 by moni             ###   ########.fr       */
+/*   Updated: 2024/07/28 14:24:12 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int	borders_are_walls(t_map *map)
 	int		row;
 	int		col;
 
+	map->max_coin = 0;
 	row = 0;
 	while (row < map->height)
 	{
@@ -56,6 +57,8 @@ int	borders_are_walls(t_map *map)
 				|| col == (map->width - 1))
 				if (map->array[row][col] != '1')
 					return (0);
+			if (map->array[row][col] == 'C')
+				map->max_coin++;
 			col++;
 		}
 		row++;
@@ -88,17 +91,36 @@ int	check_char(t_list *ligne)
 	return (1);
 }
 
+// int	check_col(t_map *map)
+// {
+// 	int		i;
+// 	t_list	*current;
+
+// 	map->max_coin = 0;
+// 	current = map->lines;
+// 	while (current)
+// 	{
+// 		i = 0;
+// 		while (((char *)current->content)[i])
+// 		{
+// 			if (((char *)current->content)[i] == 'C')
+// 				map->max_coin++;
+// 			i++;
+// 		}
+// 		current = current->next;
+// 	}
+// 	return (0);
+// }
+
 int	count_char(t_map *map)
 {
 	int		p;
 	int		e;
-	int		c;
 	int		i;
 	t_list	*current;
 
 	p = 0;
 	e = 0;
-	c = 0;
 	current = map->lines;
 	while (current)
 	{
@@ -109,45 +131,12 @@ int	count_char(t_map *map)
 				p++;
 			if (((char *)current->content)[i] == 'E')
 				e++;
-			if (((char *)current->content)[i] == 'C')
-				c++;
 			i++;
 		}
 		current = current->next;
 	}
-	if (p == 1 && e == 1 && c > 0)
-	{
-		map->max_coin = c;
+	if (p == 1 && e == 1)
 		return (1);
-	}
 	else
 		return (0);
-}
-
-static int	path_ok(int x, int y, t_map *m)
-{
-	int	res;
-
-	res = 0;
-	if (y >= m->height || x >= m->width || y < 0 || x < 0
-		|| m->map_copy[y][x] == '1' || m->map_copy[y][x] == '2')
-		return (0);
-	else if (m->map_copy[y][x] == 'E')
-		return (1);
-	else if (m->map_copy[y][x] == 'C')
-		m->coin++;
-	m->map_copy[y][x] = '2';
-	res += path_ok(x, y - 1, m);
-	res += path_ok(x, y + 1, m);
-	res += path_ok(x + 1, y, m);
-	res += path_ok(x - 1, y, m);
-	return (res);
-}
-
-int	parse_map(t_map *m)
-{
-	m->coin = 0;
-	if (path_ok(m->player.x, m->player.y, m) && m->coin == m->max_coin)
-		return (1);
-	return (0);
 }
