@@ -6,12 +6,23 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:12:43 by moni              #+#    #+#             */
-/*   Updated: 2024/07/28 14:24:12 by moni             ###   ########.fr       */
+/*   Updated: 2024/07/28 20:28:59 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // Fonctions permettant de verifier si la carte est valide avant de lancerlejeu
 #include "../includes/so_long.h"
+
+int	check_coin(t_map *map)
+{
+	if (map->max_coin < 1)
+	{
+		ft_printf("\nError : Invalid map -> Any collectible\n");
+		return (0);
+	}
+	else
+		return (1);
+}
 
 int	checkers(t_map *map, char *mapname)
 {
@@ -37,6 +48,7 @@ int	checkers(t_map *map, char *mapname)
 	}
 	return (1);
 }
+
 
 //verifier dans les checkers pouruqoi le 2eme appel ne fonctionne pas.
 // modification de la map une fois checke ?
@@ -90,27 +102,6 @@ int	check_char(t_list *ligne)
 	}
 	return (1);
 }
-
-// int	check_col(t_map *map)
-// {
-// 	int		i;
-// 	t_list	*current;
-
-// 	map->max_coin = 0;
-// 	current = map->lines;
-// 	while (current)
-// 	{
-// 		i = 0;
-// 		while (((char *)current->content)[i])
-// 		{
-// 			if (((char *)current->content)[i] == 'C')
-// 				map->max_coin++;
-// 			i++;
-// 		}
-// 		current = current->next;
-// 	}
-// 	return (0);
-// }
 
 int	count_char(t_map *map)
 {

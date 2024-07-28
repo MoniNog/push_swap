@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:09:27 by moni              #+#    #+#             */
-/*   Updated: 2024/07/26 12:28:00 by moni             ###   ########.fr       */
+/*   Updated: 2024/07/28 20:08:08 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	get_map(t_map *map, char *mapname)
 	fd = open(mapname, O_RDONLY);
 	if (fd == -1)
 	{
-		perror("Error, file can't be opened.\n");
+		ft_printf("Error : file can't be opened\n");
 		return (1);
 	}
 	line = ft_lstnew(get_next_line(fd));

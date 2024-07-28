@@ -6,12 +6,14 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 14:38:06 by moni              #+#    #+#             */
-/*   Updated: 2024/07/28 14:43:28 by moni             ###   ########.fr       */
+/*   Updated: 2024/07/28 20:29:28 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
+
+# define AA m->mlx, m->win, m->i->t, x * w, y * h
 
 # include "../lib/mlx_LINUX/mlx.h"
 # include "get_next_line.h"
@@ -89,7 +91,6 @@ void	game_init(char *mapname, t_map *map);
 int		parse_map(t_map *info);
 int		handle_keypress(int keycode, void *param);
 void	move_player(t_map *map, int keypress);
-// void	draw_map(t_map *map);
 void	draw_map(t_map *map, int y);
 int		checkers(t_map *map, char *mapname);
 int		close_win(t_map *map);
@@ -101,5 +102,6 @@ int		parse_map(t_map *m);
 int		path_ok(int x, int y, t_map *m);
 void	draw_map2(t_map *m);
 void	draw_map1(t_map *m);
+int		check_coin(t_map *map);
 
 #endif
