@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:19:34 by moni              #+#    #+#             */
-/*   Updated: 2024/08/26 12:38:26 by moni             ###   ########.fr       */
+/*   Updated: 2024/08/26 12:51:42 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,8 @@ int	main(int ac, char **av)
 				push_back(&stack_a,new_number);
 			i++;
 		}
+		print_stack(stack_a, stack_b);
+		rra(&stack_a);
 		print_stack(stack_a, stack_b);
 	}
 	free_stack(stack_a);
