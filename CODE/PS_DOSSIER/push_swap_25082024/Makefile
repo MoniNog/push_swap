@@ -5,7 +5,7 @@ CFLAGS =  -Wall -Werror -Wextra -g3 -fsanitize=address -I./lib/libft
 LIBFT_PATH = ./lib/libft
 LIBFT = -L$(LIBFT_PATH) -lft
 
-SRC = src/main.c src/fun/push.c src/fun/reverse_rotate.c src/fun/rotate.c\
+SRC = src/algo.c src/main.c src/fun/push.c src/fun/reverse_rotate.c src/fun/rotate.c\
 	src/fun/swap.c src/fun/utils_functions.c src/memory_management.c
 OBJS = $(SRC:.c=.o)
 HEADERS = -Iincludes

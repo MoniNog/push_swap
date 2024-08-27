@@ -2,3 +2,7 @@
 [x] pop				Retirer une assiette du sommet de la stack
 [_] print_stack		Afficher dans le terminal la pile
 [_] main			Créer la liste en utilisant push (dans le main) et l'afficher avec print_stack
+
+stack C
+cout par node stack b + stack a compteur de move
+suite dinstruciton qui marche ne utilisant les index

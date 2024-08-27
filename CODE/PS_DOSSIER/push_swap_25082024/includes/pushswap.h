@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:13:16 by moni              #+#    #+#             */
-/*   Updated: 2024/08/26 12:51:36 by moni             ###   ########.fr       */
+/*   Updated: 2024/08/27 21:49:55 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,22 @@ void	reverse_rotate(t_stack**stack);
 void	rra(t_stack **stack_a);//ra (rotate a) : Décale d’une position vers le haut tous les élements de la pile a. Le premier élément devient le dernier.
 void	rrb(t_stack **stack_b);//rb (rotate b) : Décale d’une position vers le haut tous les élements de la pile b. Le premier élément devient le dernier.
 void	rrr(t_stack **stack_a, t_stack **stack_b);//rr : ra et rb en même temps.
+void	tri(t_stack **stack_a, t_stack **stack_b);
+void	print_stack(t_stack *stack_a, t_stack *stack_b);
 
-
+typedef struct node
+{
+	int		nb;
+	int		index;
+	struct	node *next;
+	struct	node *prev;
+	int		value;
+	int		sa;
+	int		sb;
+	int		ra;
+	int		rb;
+	int		rra;
+	int		rrb;
+} t_node;
 
 #endif
