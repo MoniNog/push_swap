@@ -1,7 +1,7 @@
 NAME = push_swap
 CC = gcc
-CFLAGS =  -Wall -Werror -Wextra -g3 -fsanitize=address -I./lib/libft
-# CFLAGS =  -Wall -Werror -Wextra -I./lib/libft
+# CFLAGS =  -Wall -Wextra -g3 -fsanitize=address -I./lib/libft
+CFLAGS =  -Wall -Werror -Wextra -I./lib/libft
 LIBFT_PATH = ./lib/libft
 LIBFT = -L$(LIBFT_PATH) -lft
 

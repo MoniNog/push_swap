@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:13:16 by moni              #+#    #+#             */
-/*   Updated: 2024/08/27 21:49:55 by moni             ###   ########.fr       */
+/*   Updated: 2024/08/28 11:54:27 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_stack
 	int				content;
 	struct s_stack	*next;
 	struct s_stack	*prev;
+	int				size;
 }					t_stack;
 
 void	free_stack(t_stack *stack);
@@ -49,6 +50,10 @@ void	rrb(t_stack **stack_b);//rb (rotate b) : Décale d’une position vers le h
 void	rrr(t_stack **stack_a, t_stack **stack_b);//rr : ra et rb en même temps.
 void	tri(t_stack **stack_a, t_stack **stack_b);
 void	print_stack(t_stack *stack_a, t_stack *stack_b);
+void	creat_stack(t_stack *stack_a, t_stack *stack_b, int ac, char **av);
+int		stack_size(t_stack *number);
+int		index_of_number_on_stack(t_stack **stack, t_stack *number);
+
 
 typedef struct node
 {

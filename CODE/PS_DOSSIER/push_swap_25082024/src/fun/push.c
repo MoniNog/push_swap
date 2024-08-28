@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:53:45 by moni              #+#    #+#             */
-/*   Updated: 2024/08/27 21:50:47 by moni             ###   ########.fr       */
+/*   Updated: 2024/08/28 12:01:48 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ void		ppush(t_stack **dest, t_stack **src)//	src == pile source		dest == pile de
 void	pa(t_stack **a, t_stack **b)// PUSH B - Prend le premier élément au sommet de b et le met sur a. Ne fait rien si b est vide.
 {
 	ppush(a, b);
-	write(1, "pa\n", 3);
+	write(1, "pa\t", 3);
 }
 
 void	pb(t_stack **a, t_stack **b)// PUSH B - Prend le premier élément au sommet de a et le met sur b. Ne fait rien si a est vide.
 {
 	ppush(b, a);
-	write(1, "pb\n", 3);
+	write(1, "pb\t", 3);
 }
 

@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:54:30 by moni              #+#    #+#             */
-/*   Updated: 2024/08/26 12:41:35 by moni             ###   ########.fr       */
+/*   Updated: 2024/08/28 12:01:56 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,12 @@ void	rotate(t_stack**stack)
 void	ra(t_stack **stack_a)//ra (rotate a) : Décale d’une position vers le haut tous les élements de la pile a. Le premier élément devient le dernier.
 {
 	rotate(stack_a);
-	write(1, "ra\n", 3);
+	write(1, "ra\t", 3);
 }
 void	rb(t_stack **stack_b)//rb (rotate b) : Décale d’une position vers le haut tous les élements de la pile b. Le premier élément devient le dernier.
 {
 	rotate(stack_b);
-	write(1, "rb\n", 3);
+	write(1, "rb\t", 3);
 }
 void	rr(t_stack **stack_a, t_stack **stack_b)//rr : ra et rb en même temps.
 {

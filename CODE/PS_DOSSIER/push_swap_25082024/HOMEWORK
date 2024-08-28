@@ -5,4 +5,6 @@
 
 stack C
 cout par node stack b + stack a compteur de move
-suite dinstruciton qui marche ne utilisant les index
+suite dinstruciton qui marche en utilisant les index
+compter les moves nec pour monter en haut de la stack B
+
