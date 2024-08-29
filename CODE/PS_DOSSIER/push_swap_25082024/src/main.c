@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:19:34 by moni              #+#    #+#             */
-/*   Updated: 2024/08/28 12:02:59 by moni             ###   ########.fr       */
+/*   Updated: 2024/08/29 13:15:42 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	print_stack(t_stack *stack_a, t_stack *stack_b)
 			stack_a = stack_a->next;
 		}
 		else
-			printf("│     │         │\n");
+			printf("│     │         │\t");
 		if (stack_b)
 		{
 			printf("│ \033[\033[0;31m%2d  \033[1;34m│ \033[0m%5d   \033[1;34m│\n", index, stack_b->content);
@@ -68,8 +68,6 @@ void	creat_stack(t_stack *stack_a, t_stack *stack_b, int ac, char **av)
 			push_back(&stack_a,new_number);
 		i++;
 	}
-	print_stack(stack_a, stack_b);
-	tri(&stack_a, &stack_b);
 	print_stack(stack_a, stack_b);
 }
 

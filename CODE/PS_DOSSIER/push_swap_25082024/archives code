@@ -57,3 +57,24 @@
 
 // 	return (stack_start);
 // }
+
+
+// int	stack_size(t_stack **stack)
+// {
+// 	int	size;
+// 	// int	index;
+// 	int	count;
+
+// 	count = 0;
+// 	size = 0;
+// 	// index = 0;
+// 	while (*stack)
+// 	{
+// 		size++;
+// 		*stack = (*stack)->next;
+// 	}
+// 	// index = size - 1;
+// 	(*stack)->size = size;
+// 	// (*stack)->index = index;
+// 	return (count);
+// }

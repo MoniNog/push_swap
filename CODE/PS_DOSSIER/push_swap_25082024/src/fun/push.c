@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:53:45 by moni              #+#    #+#             */
-/*   Updated: 2024/08/28 12:01:48 by moni             ###   ########.fr       */
+/*   Updated: 2024/08/29 13:11:06 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,3 @@ void	pb(t_stack **a, t_stack **b)// PUSH B - Prend le premier élément au somme
 	ppush(b, a);
 	write(1, "pb\t", 3);
 }
-
