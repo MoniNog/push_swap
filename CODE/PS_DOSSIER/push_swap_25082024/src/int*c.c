@@ -46,6 +46,7 @@
 // 		printf("index - [ %i ] --- content : [ %i ]\n", j, c[j]);
 // 		j++;
 // 	}
+// }
 
 // 	// int		a;
 // 	// int 	*temp;

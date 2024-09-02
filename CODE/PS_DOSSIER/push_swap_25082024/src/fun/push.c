@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:53:45 by moni              #+#    #+#             */
-/*   Updated: 2024/09/01 22:06:54 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/02 13:27:06 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ void		ppush(t_stack **dest, t_stack **src)//	src == pile source		dest == pile de
 	t_stack		*node_to_push;
 
 	if (*src == NULL)//				si la pile source est vide -> EXIT
-		return;
+		{
+			printf("empty");
+			return;
+		}
 	
 	node_to_push = *src;//			node_to_push pointe sur le debut de la pile source
 	*src = (*src)->next;//			MAJ du debut de la pile source : le debut commence apres l'element retire
@@ -40,21 +43,16 @@ void		ppush(t_stack **dest, t_stack **src)//	src == pile source		dest == pile de
 	}
 }
 
-void	pa(t_stack **a, t_stack **b, t_info *info)// PUSH B - Prend le premier élément au sommet de b et le met sur a. Ne fait rien si b est vide.
+void	pa(t_stack **a, t_stack **b, t_info *info)// PUSH A - Prend le premier élément au sommet de b et le met sur a. Ne fait rien si b est vide.
 {
 	ppush(a, b);
 	write(1, "pa\t", 3);
-	if (info != NULL) {
-    info->move++;
-}
+	info->move++;
 }
 
 void	pb(t_stack **a, t_stack **b, t_info *info)// PUSH B - Prend le premier élément au sommet de a et le met sur b. Ne fait rien si a est vide.
 {
 	ppush(b, a);
 	write(1, "pb\t", 3);
-if (info != NULL) {
-    info->move++;
-}
-
+	info->move++;
 }

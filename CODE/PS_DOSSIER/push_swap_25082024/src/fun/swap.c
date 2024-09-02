@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:54:36 by moni              #+#    #+#             */
-/*   Updated: 2024/08/31 19:11:11 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/02 13:28:17 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,21 +42,24 @@ void	swap(t_stack **stack)
 	}
 }
 
-void	sa(t_stack **stack_a, t_info *count)// SWAP A - Intervertit les 2 premiers éléments au sommet de la pile a. Ne fait rien s’il n’y en a qu’un ou aucun.
+void	sa(t_stack **stack_a, t_info *info)// SWAP A - Intervertit les 2 premiers éléments au sommet de la pile a. Ne fait rien s’il n’y en a qu’un ou aucun.
 {
 	swap(stack_a);
 	write(1, "sa\n", 3);
+	info->move++;
 }
 
-void	sb(t_stack **stack_b, t_info *count)// SWAP B - Intervertit les 2 premiers éléments au sommet de la pile b. Ne fait rien s’il n’y en a qu’un ou aucun.
+void	sb(t_stack **stack_b, t_info *info)// SWAP B - Intervertit les 2 premiers éléments au sommet de la pile b. Ne fait rien s’il n’y en a qu’un ou aucun.
 {
 	swap(stack_b);
 	write(1, "sb\n", 3);
+	info->move++;
 }
 
-void	ss(t_stack **stack_a, t_stack **stack_b, t_info *count)
+void	ss(t_stack **stack_a, t_stack **stack_b, t_info *info)
 {
 	swap(stack_a);
 	swap(stack_b);
 	write(1, "ss\n", 3);
+	info->move++;
 }
