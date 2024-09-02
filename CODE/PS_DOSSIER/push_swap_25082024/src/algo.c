@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 14:44:28 by moni              #+#    #+#             */
-/*   Updated: 2024/08/29 13:12:59 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/01 22:07:33 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		find_min(t_stack *stack)
 	return(min);
 }
 
-void	tri(t_stack **stack_a, t_stack **stack_b)
+void	tri(t_stack **stack_a, t_stack **stack_b, t_info *info)
 {
 	int	min;
 
@@ -34,10 +34,12 @@ void	tri(t_stack **stack_a, t_stack **stack_b)
 	{
 		min = find_min(*stack_a);
 		while ((*stack_a)->content != min)
-			ra(stack_a);
-		pb(stack_a, stack_b);
-		print_stack(*stack_a, *stack_b);
+			ra(stack_a, info);
+		pb(stack_a, stack_b, info);
+		// print_stack(*stack_a, *stack_b, info);
+		(void)info;
 	}
+	
 
 	// while(*stack_b)
 
@@ -87,12 +89,12 @@ int	stack_size(t_stack **stack)
 	int	count;
 
 	count = 0;
-	while (*stack)
+	while ((*stack)->next)
 	{
 		count++;
 		*stack = (*stack)->next;
 	}
 	// (*stack)->size = malloc(sizeof(t_stack));
-	count = (*stack)->size;
+	//count = (*stack)->size;
 	return (count);
 }

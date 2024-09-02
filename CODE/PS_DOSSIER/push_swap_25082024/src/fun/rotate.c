@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:54:30 by moni              #+#    #+#             */
-/*   Updated: 2024/08/28 12:01:56 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/01 22:06:31 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,17 +47,24 @@ void	rotate(t_stack**stack)
 		(*stack)->prev = NULL;
 	}
 }
-void	ra(t_stack **stack_a)//ra (rotate a) : Décale d’une position vers le haut tous les élements de la pile a. Le premier élément devient le dernier.
+void	ra(t_stack **stack_a, t_info *info)//ra (rotate a) : Décale d’une position vers le haut tous les élements de la pile a. Le premier élément devient le dernier.
 {
 	rotate(stack_a);
 	write(1, "ra\t", 3);
+	// info->move++;
+	if (info != NULL) {
+    info->move++;
 }
-void	rb(t_stack **stack_b)//rb (rotate b) : Décale d’une position vers le haut tous les élements de la pile b. Le premier élément devient le dernier.
+}
+void	rb(t_stack **stack_b, t_info *info)//rb (rotate b) : Décale d’une position vers le haut tous les élements de la pile b. Le premier élément devient le dernier.
 {
 	rotate(stack_b);
 	write(1, "rb\t", 3);
+	if (info != NULL) {
+    info->move++;
 }
-void	rr(t_stack **stack_a, t_stack **stack_b)//rr : ra et rb en même temps.
+}
+void	rr(t_stack **stack_a, t_stack **stack_b, t_info *count)//rr : ra et rb en même temps.
 {
 	rotate(stack_a);
 	rotate(stack_b);

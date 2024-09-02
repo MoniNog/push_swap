@@ -1,6 +1,9 @@
 {
 	"C_Cpp.errorSquiggles": "disabled",
 	"files.associations": {
-		"algorithm": "c"
+		"algorithm": "c",
+		"bit": "c",
+		"limits": "c",
+		"streambuf": "c"
 	}
 }

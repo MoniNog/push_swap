@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:48:35 by moni              #+#    #+#             */
-/*   Updated: 2024/08/28 10:36:14 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/02 12:42:35 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	free_stack(t_stack *stack)
 {
 	t_stack	*temp;
 
+	temp = NULL;
 	while (stack)
 	{
 		temp = stack->next;
