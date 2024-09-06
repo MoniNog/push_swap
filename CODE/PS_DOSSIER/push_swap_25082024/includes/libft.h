@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:44:03 by moni              #+#    #+#             */
-/*   Updated: 2024/08/09 11:26:06 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/03 19:02:09 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,17 @@
 # include "ft_printf.h"
 # include <stdbool.h>
 
+#define INT_MAX 2147483647
+#define INT_MIN -2147483648
+
+
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }					t_list;
 
+long	ft_atol(const char *str);
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t nb, size_t size);
 int		ft_isalnum(int c);

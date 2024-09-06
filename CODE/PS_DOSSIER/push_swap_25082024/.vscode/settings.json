@@ -4,6 +4,8 @@
 		"algorithm": "c",
 		"bit": "c",
 		"limits": "c",
-		"streambuf": "c"
+		"streambuf": "c",
+		"chrono": "c",
+		"random": "c"
 	}
 }

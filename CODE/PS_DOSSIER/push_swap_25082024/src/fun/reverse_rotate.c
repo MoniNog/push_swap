@@ -6,13 +6,13 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:54:26 by moni              #+#    #+#             */
-/*   Updated: 2024/09/02 13:28:35 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/02 15:25:34 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
 
-void	reverse_rotate(t_stack**stack)
+void	reverse_rotate(t_stack **stack)
 {
 	t_stack		*first;
 	t_stack		*last;
