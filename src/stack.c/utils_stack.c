@@ -6,55 +6,12 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:49:37 by moni              #+#    #+#             */
-/*   Updated: 2024/09/06 12:13:15 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/06 19:59:53 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
 
-t_stack	*new_node(char *av, t_info *info)
-{
-	t_stack		*new;
-	int			number;
-
-	number = ft_atoi(av);
-	new = malloc(sizeof(t_stack));
-	if(!new)
-		return NULL;
-	new->content = number;
-	info->size++;
-	new->next = NULL;
-	new->prev = NULL;
-	return (new);
-}
-
-void	push_back(t_stack **stack, t_stack *new)
-{
-	t_stack *temp;
-
-	if(!new)
-		return ;
-
-	if (!*stack)
-	{
-		*stack = new;
-		return ;
-	}
-
-	temp = *stack;
-	while (temp->next != NULL)
-	{
-		if (temp->content == new->content)
-		{
-			free(*stack);
-			ft_putstr_fd("Error\n", 2);
-			exit(1);
-		}
-		temp = temp->next;
-	}
-	temp->next = new;
-	new->prev = temp;
-}
 
 t_stack		*pop(t_stack **stack)
 {
