@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:13:16 by moni              #+#    #+#             */
-/*   Updated: 2024/09/06 20:04:19 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/06 20:36:09 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,12 @@ void	sb(t_stack **stack_b, t_info *info);
 void	ss(t_stack **stack_a, t_stack **stack_b, t_info *info);
 
 //	FUN > ROTATE
-void	rotate(t_stack **stack);
+void	rotate(t_stack **stack);// Rot vers le haut
 void	rb(t_stack **stack_b, t_info *info);
 void	ra(t_stack **stack_a, t_info *info);
 
 //	FUN > REVERSE ROTATE
-void	reverse_rotate(t_stack **stack);
+void	reverse_rotate(t_stack **stack);// Rot vers le bas
 void	rra(t_stack **stack_a, t_info *info);
 void	rrb(t_stack **stack_b, t_info *info);
 void	rrr(t_stack **stack_a, t_stack **stack_b, t_info *info);
@@ -115,7 +115,7 @@ void	sort_permutation(int stack[4]);
 // STACK > CREAT STACK
 t_stack	*new_node(char *av, t_info *info);
 void	push_back(t_stack **stack_a, t_stack *new);
-void	creat_stack(t_stack **stack_a, t_stack **stack_b, t_info** info, int ac, char **av);
+void	create_stack(t_stack **stack_a, t_stack **stack_b, t_info** info, int ac, char **av);
 long	ft_atol(const char *str);
 
 // STACK > PRINT STACK

@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:54:26 by moni              #+#    #+#             */
-/*   Updated: 2024/09/02 15:25:34 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/06 20:19:36 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,21 +48,21 @@ void	reverse_rotate(t_stack **stack)
 	}
 }
 
-void	rra(t_stack **stack_a, t_info *info)//ra (rotate a) : Décale d’une position vers le haut tous les élements de la pile a. Le premier élément devient le dernier.
+void	rra(t_stack **stack_a, t_info *info)
 {
 	reverse_rotate(stack_a);
 	write(1, "rra\n", 4);
 	info->move++;
 }
 
-void	rrb(t_stack **stack_b, t_info *info)//rb (rotate b) : Décale d’une position vers le haut tous les élements de la pile b. Le premier élément devient le dernier.
+void	rrb(t_stack **stack_b, t_info *info)
 {
 	reverse_rotate(stack_b);
 	write(1, "rrb\n", 4);
 	info->move++;
 }
 
-void	rrr(t_stack **stack_a, t_stack **stack_b, t_info *info)//rr : ra et rb en même temps.
+void	rrr(t_stack **stack_a, t_stack **stack_b, t_info *info)
 {
 	reverse_rotate(stack_a);
 	reverse_rotate(stack_b);

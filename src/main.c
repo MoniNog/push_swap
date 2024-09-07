@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:19:34 by moni              #+#    #+#             */
-/*   Updated: 2024/09/06 19:31:55 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/07 15:40:57 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@ int	main(int ac, char **av)
 	stack_a = NULL;
 	stack_b = NULL;
 	
+
 	if (ac > 1)
 	{
-		creat_stack(&stack_a, &stack_b, &info, ac, av);
-		tri_tree(&stack_a, &stack_b, info);
+		create_stack(&stack_a, &stack_b, &info, ac, av);
+		tri_three(&stack_a, &stack_b, info);
 		print_stack(stack_a, stack_b, info);
 	}
+	
 	
 	free(info);
 	free_stack(stack_a);

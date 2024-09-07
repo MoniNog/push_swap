@@ -5,8 +5,11 @@ CFLAGS =  -Wall -Wextra -I./lib/libft -Wno-unused-parameter
 LIBFT_PATH = ./lib/libft
 LIBFT = -L$(LIBFT_PATH) -lft
 
-SRC = src/sort/algo.c src/main.c src/fun/push.c src/fun/reverse_rotate.c src/fun/rotate.c\
-	src/fun/swap.c src/fun/utils_stack.c src/memory_management.c 
+SRC = src/fun/push.c src/fun/rotate.c src/fun/reverse_rotate.c src/fun/swap.c\
+		src/sort/algo.c src/sort/sort_3.c src/sort/sort_4.c src/sort/utils_sort.c\
+		src/stack.c/creat_stack.c src/stack.c/print_stack.c src/stack.c/utils_stack.c\
+		src/memory_management.c src/main.c
+
 OBJS = $(SRC:.c=.o)
 HEADERS = -Iincludes
 

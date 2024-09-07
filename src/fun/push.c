@@ -6,13 +6,13 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:53:45 by moni              #+#    #+#             */
-/*   Updated: 2024/09/05 21:29:50 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/06 20:19:23 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
 
-void		push(t_stack **dest, t_stack **src)//	src == pile source		dest == pile dest
+void	push(t_stack **dest, t_stack **src)
 {
 	t_stack		*node_to_push;
 
@@ -43,14 +43,14 @@ void		push(t_stack **dest, t_stack **src)//	src == pile source		dest == pile des
 	}
 }
 
-void	pa(t_stack **a, t_stack **b, t_info *info)// PUSH A - Prend le premier élément au sommet de b et le met sur a. Ne fait rien si b est vide.
+void	pa(t_stack **a, t_stack **b, t_info *info)
 {
 	push(a, b);
 	write(1, "pa\t", 3);
 	info->move++;
 }
 
-void	pb(t_stack **a, t_stack **b, t_info *info)// PUSH B - Prend le premier élément au sommet de a et le met sur b. Ne fait rien si a est vide.
+void	pb(t_stack **a, t_stack **b, t_info *info)
 {
 	push(b, a);
 	write(1, "pb\t", 3);
