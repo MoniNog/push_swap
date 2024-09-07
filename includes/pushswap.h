@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:13:16 by moni              #+#    #+#             */
-/*   Updated: 2024/09/06 20:36:09 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/07 17:35:44 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,10 +97,10 @@ void	rrr(t_stack **stack_a, t_stack **stack_b, t_info *info);
 
 // SORT
 // SORT > ALGO
-void	tri(t_stack **stack_a, t_stack **stack_b, t_info *info);
+void	sort_all(t_stack **stack_a, t_stack **stack_b, t_info *info);
 
 // SORT > SORT 3
-void	tri_three(t_stack **a, t_stack **b, t_info *info);
+void	sort_3(t_stack **a, t_stack **b, t_info *info);
 
 // SORT > SORT 4
 void	execute_operations(char *operations);
@@ -120,6 +120,7 @@ long	ft_atol(const char *str);
 
 // STACK > PRINT STACK
 void	print_stack(t_stack *stack_a, t_stack *stack_b, t_info *info);
+void	print_move_and_size(t_stack *stack_a, t_stack *stack_b, t_info *info);
 
 // STACK > UTILS STACK
 int		find_min(t_stack *stack);

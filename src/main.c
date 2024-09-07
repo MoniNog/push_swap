@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:19:34 by moni              #+#    #+#             */
-/*   Updated: 2024/09/07 15:40:57 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/07 17:38:18 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,26 @@ int	main(int ac, char **av)
 
 	stack_a = NULL;
 	stack_b = NULL;
-	
+	info = NULL;
 
 	if (ac > 1)
 	{
+			printf("\navant tout...\n");
+			print_stack(stack_a, stack_b, info);
+
+			printf("\ncreate_stack\n");
 		create_stack(&stack_a, &stack_b, &info, ac, av);
-		tri_three(&stack_a, &stack_b, info);
-		print_stack(stack_a, stack_b, info);
+			print_stack(stack_a, stack_b, info);
+
+			printf("\nsort\n\n");
+		// sort_all(&stack_a, &stack_b, info);
+		sort_3(&stack_a, &stack_b, info);
+			print_stack(stack_a, stack_b, info);
+			
+			printf("\nmove and size\n");
+			print_move_and_size(stack_a, stack_b, info);
+			
+			printf("\nend\n");
 	}
 	
 	

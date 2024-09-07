@@ -12,12 +12,12 @@
 
 #include "../../includes/pushswap.h"
 
-void	tri(t_stack **stack_a, t_stack **stack_b, t_info *info)
+void	sort_all(t_stack **stack_a, t_stack **stack_b, t_info *info)
 {
 	int	min;
 	int	a;
-	a = 0;
 
+	a = 0;
 	while (a < info->size)// tant quil reste qqch dans la stack
 	{
 		min = find_min(*stack_a);
@@ -26,10 +26,10 @@ void	tri(t_stack **stack_a, t_stack **stack_b, t_info *info)
 		if(a < info->size)
 			pb(stack_a, stack_b, info);
 		(void)info;
-
 		a++;
 	}
-	
+	// print_stack(*stack_a, *stack_b, info);
+
 	while (*stack_b)
 		pa(stack_a, stack_b, info);
 }

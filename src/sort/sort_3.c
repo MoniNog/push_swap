@@ -6,13 +6,13 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 19:52:15 by moni              #+#    #+#             */
-/*   Updated: 2024/09/06 20:10:07 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/07 17:35:44 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
 
-void	tri_three(t_stack **a, t_stack **b, t_info *info)
+void	sort_3(t_stack **a, t_stack **b, t_info *info)
 {
 	int		min = find_min(*a);
 	int		max = find_max(*a);
