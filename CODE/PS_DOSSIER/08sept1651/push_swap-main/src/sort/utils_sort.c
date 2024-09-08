@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 19:52:07 by moni              #+#    #+#             */
-/*   Updated: 2024/09/08 20:08:28 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/08 20:34:31 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int find_min(t_stack *stack, t_info *info) {
 		}
 		stack = stack->next;
 	}
-	printf("min_index : %i\n", info->min_index);
 	return min;
 }
 

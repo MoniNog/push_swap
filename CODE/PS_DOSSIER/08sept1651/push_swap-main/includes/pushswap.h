@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:13:16 by moni              #+#    #+#             */
-/*   Updated: 2024/09/08 20:11:46 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/08 20:46:12 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,9 @@ void	sort_3(t_stack **a, t_stack **b, t_info *info);
 
 // SORT > SORT 4
 void sort_4(t_stack **a, t_stack **b, t_info *info);
+void sort_5(t_stack **a, t_stack **b, t_info *info);
+void sort_n(t_stack **a, t_stack **b, t_info *info);
+
 // void	execute_operations(char *operations);
 // void	sort_permutation(int stack[4]);
 

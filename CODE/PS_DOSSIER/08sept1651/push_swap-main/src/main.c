@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:19:34 by moni              #+#    #+#             */
-/*   Updated: 2024/09/08 20:12:56 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/08 21:03:25 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,10 @@ int	main(int ac, char **av)
 
 	if (ac > 1)
 	{
-		print_stack(stack_a, stack_b, info);
-
 		create_stack(&stack_a, &stack_b, &info, ac, av);
 		print_stack(stack_a, stack_b, info);  // print the stack after creation
-
-		find_min(stack_a, info);
-		printf("min_index: %d\n", info->min_index);  // print min_index after find_min
-
-		sort_4(&stack_a, &stack_b, info);
+		sort_n(&stack_a, &stack_b, info);
 		print_stack(stack_a, stack_b, info);  // print the stack after sorting
-
 		print_move_and_size(stack_a, stack_b, info);
 	}
 	
