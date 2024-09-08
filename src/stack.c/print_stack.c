@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 19:52:37 by moni              #+#    #+#             */
-/*   Updated: 2024/09/07 17:33:07 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/08 10:13:37 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ void	print_stack(t_stack *stack_a, t_stack *stack_b, t_info *info)
 	int			index;
 
 	index = 0;
-	if (!stack_a)
-	{
-		printf("\033[1;34m\n┌───────────────┐\n");
-		printf("│ Empty stack_a │\n");
-		printf("└───────────────┘\n");
-		printf("  * ** *** ** *  \033[0m\n");
-		return ;
-	}
+	// if (!stack_a)
+	// {
+	// 	printf("\033[1;34m\n┌───────────────┐\n");
+	// 	printf("│ Empty stack_a │\n");
+	// 	printf("└───────────────┘\n");
+	// 	printf("  * ** *** ** *  \033[0m\n");
+	// 	return ;
+	// }
 	if (!stack_b)
 	{
 		printf("\033[1;34m\n\t\t\t┌───────────────┐\n");
@@ -41,7 +41,7 @@ void	print_stack(t_stack *stack_a, t_stack *stack_b, t_info *info)
 	printf("│ \033[1;91mInd \033[1;34m│  \033[1;37mValue  \033[1;34m│\t");
 	printf("│ \033[1;91mInd \033[1;34m│  \033[1;37mValue  \033[1;34m│\n");
 	printf("├─────┼─────────┤\t├─────┼─────────┤\n\033[0m");
-	while (index < info->size)
+	while (index < 10)
 	{
 		if (stack_a)
 		{

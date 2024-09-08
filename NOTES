@@ -4,3 +4,4 @@ SEGV a traiter OK
 sort_3 OK
 
 sort_all : probleme avec des zero au debut 
+	ils sont plus bas, par contre il doit y avoir un soucis de pointeur pour le debut de la liste

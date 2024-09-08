@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   creat_stack.c                                      :+:      :+:    :+:   */
+/*   create_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 19:52:25 by moni              #+#    #+#             */
-/*   Updated: 2024/09/06 20:54:22 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/08 10:28:45 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,9 @@ void	create_stack(t_stack **stack_a, t_stack **stack_b, t_info **info, int ac, c
 	int		i;
 
 	*stack_b = malloc(sizeof(t_stack));
+	*stack_b = NULL;
 	*info = malloc(sizeof(t_info));
-	if (*info == NULL || *stack_b == NULL)
+	if (*info == NULL)
 		return ;
 
 	(*info)->move = 0;
