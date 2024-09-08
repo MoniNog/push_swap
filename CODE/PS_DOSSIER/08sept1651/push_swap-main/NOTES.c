@@ -13,7 +13,10 @@
 
 
 
+sort_3, sort_4, sort_5, sort_n OK
 
+pour les serie jusqua 100 cest ok mais pas super optimal.
+pour les serie jusqua 500 ca CRASH :( OH NO !!
 
 
 
