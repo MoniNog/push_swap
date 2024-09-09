@@ -1,18 +1,21 @@
 Avec Elise Klay:
-- input : SPLIT, isdigit, isint...
+- input : SPLIT, 
 - sort > 100 nombres 
+- comment distinguer le doublon 0 et -0 ?
 
 - 't_stack **stack' -> modifiable
 - 't_stack *stack' -> non-modifiable
 
 Moni :
 // - trier 2 nombres 
-// - trier 1 nombre, "\n"
-// - trier 0 nombre, "\n"
+// - trier 1 nombre, implicite
+// - trier 0 nombre, implicite
 
 
 
+// isdigitorspace -> checkers
 
+// is_int -> new_node.c
 
 
 

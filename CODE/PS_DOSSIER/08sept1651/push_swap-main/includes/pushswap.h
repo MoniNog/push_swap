@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:13:16 by moni              #+#    #+#             */
-/*   Updated: 2024/09/09 13:50:42 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/09 14:35:30 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,8 @@ typedef struct s_info
 	void	free_stack(t_stack *stack);
 
 // CHECKERS
+	bool	checks_are_ok(char *av);
+	bool	is_int(long number);
 
 
 

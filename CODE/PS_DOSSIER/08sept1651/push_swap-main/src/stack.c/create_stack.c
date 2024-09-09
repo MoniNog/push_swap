@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 19:52:25 by moni              #+#    #+#             */
-/*   Updated: 2024/09/08 18:00:10 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/09 14:39:19 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,19 @@ t_stack	*new_node(char *av, t_info *info)
 	int			number;
 
 	number = ft_atoi(av);
-	new = malloc(sizeof(t_stack));
-	if(!new)
-		return NULL;
-	new->content = number;
-	info->size++;
-	new->next = NULL;
-	new->prev = NULL;
-	return (new);
+	if (is_int(number) == true)
+	{
+		new = malloc(sizeof(t_stack));
+		if(!new)
+			return NULL;
+		new->content = number;
+		info->size++;
+		new->next = NULL;
+		new->prev = NULL;
+		return (new);
+	}
+	write(2, "Error\n", 6);
+	return NULL;
 }
 
 void	push_back(t_stack **stack, t_stack *new)

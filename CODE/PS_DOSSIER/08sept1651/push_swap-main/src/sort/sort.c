@@ -39,20 +39,14 @@ void	sort_2(t_stack **a, t_info *info)
 	if ((*a)->content > (*a)->next->content)
 		sa(a, info);
 	else
-		write(2, "\n", 1);
+		return ;
 }
 
 void	choose_sort(t_stack **a, t_stack **b, t_info *info)
 {
-	if (info->size == 1)
-	{
-		write(2, "\n", 1);
-		return ;
-	}
 	if (info->size == 2)
 	{
 		sort_2(a, info);
-		printf("size 2\n");
 		return ;
 	}
 	if (info->size == 3)
