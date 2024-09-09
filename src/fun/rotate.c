@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:54:30 by moni              #+#    #+#             */
-/*   Updated: 2024/09/07 19:24:28 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/09 20:12:15 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	rotate(t_stack**stack)
 void	ra(t_stack **stack_a, t_info *info)
 {
 	rotate(stack_a);
-	write(1, "ra\t", 3);
+	write(1, "ra\n", 3);
 	info->move++;
 }
 
