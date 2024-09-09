@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:53:45 by moni              #+#    #+#             */
-/*   Updated: 2024/09/08 10:33:24 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/08 17:21:48 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,5 @@ void	pb(t_stack **a, t_stack **b, t_info *info)
 	push(b, a);
 	write(1, "pb\t", 3);
 	info->move++;
+	print_stack(*a, *b, info);
 }

@@ -20,7 +20,7 @@ void	sort_all(t_stack **stack_a, t_stack **stack_b, t_info *info)
 	a = 0;
 	while (a < info->size)// tant quil reste qqch dans la stack
 	{
-		min = find_min(*stack_a);
+		min = find_min(*stack_a, info);
 		while ((*stack_a)->content != min)
 			ra(stack_a, info);
 		if(a < info->size)
@@ -32,4 +32,45 @@ void	sort_all(t_stack **stack_a, t_stack **stack_b, t_info *info)
 
 	while (*stack_b)
 		pa(stack_a, stack_b, info);
+}
+
+void	sort_2(t_stack **a, t_info *info)
+{
+	if ((*a)->content > (*a)->next->content)
+		sa(a, info);
+	else
+		return ;
+}
+
+void	choose_sort(t_stack **a, t_stack **b, t_info *info)
+{
+	if (info->size == 2)
+	{
+		sort_2(a, info);
+		return ;
+	}
+	if (info->size == 3)
+	{
+		sort_3(a, b, info);
+		printf("size 3\n");
+		return ;
+	}
+	else if (info->size == 4)
+	{
+		sort_4(a, b, info);
+		printf("size 4\n");
+		return ;
+	}
+	else if (info->size == 5)
+	{	
+		sort_5(a, b, info);
+		printf("size 5\n");
+		return ;
+	}
+	else
+	{
+		sort_n(a, b, info);
+		printf("size n\n");
+		return ;
+	}
 }

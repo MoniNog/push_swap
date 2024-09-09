@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 19:52:25 by moni              #+#    #+#             */
-/*   Updated: 2024/09/08 10:28:45 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/09 14:39:19 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,19 @@ t_stack	*new_node(char *av, t_info *info)
 	int			number;
 
 	number = ft_atoi(av);
-	new = malloc(sizeof(t_stack));
-	if(!new)
-		return NULL;
-	new->content = number;
-	info->size++;
-	new->next = NULL;
-	new->prev = NULL;
-	return (new);
+	if (is_int(number) == true)
+	{
+		new = malloc(sizeof(t_stack));
+		if(!new)
+			return NULL;
+		new->content = number;
+		info->size++;
+		new->next = NULL;
+		new->prev = NULL;
+		return (new);
+	}
+	write(2, "Error\n", 6);
+	return NULL;
 }
 
 void	push_back(t_stack **stack, t_stack *new)
@@ -67,12 +72,11 @@ void	create_stack(t_stack **stack_a, t_stack **stack_b, t_info **info, int ac, c
 	t_stack	*new_number;
 	int		i;
 
-	*stack_b = malloc(sizeof(t_stack));
-	*stack_b = NULL;
-	*info = malloc(sizeof(t_info));
-	if (*info == NULL)
-		return ;
+	*stack_b = NULL; // Just set *stack_b to NULL, no need to malloc
 
+	*info = malloc(sizeof(t_info));
+	if (!*info)
+		return ;
 	(*info)->move = 0;
 	(*info)->size = 0;
 	
