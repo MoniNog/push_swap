@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 09:20:49 by moni              #+#    #+#             */
-/*   Updated: 2024/09/08 20:52:29 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/09 13:48:04 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,17 +96,6 @@ void sort_5(t_stack **a, t_stack **b, t_info *info)
 	}
 }
 
-int	is_sorted(t_stack *stack, int size)
-{
-	while (stack->next)
-	{
-		if (stack->content > stack->next->content)
-			return (0);
-		stack = stack->next;
-	}
-	return (1);
-}
-
 void sort_n(t_stack **a, t_stack **b, t_info *info)
 {
 	if (info->size <= 1)
@@ -132,7 +121,7 @@ void sort_n(t_stack **a, t_stack **b, t_info *info)
 		}
 	}
 
-	if (!is_sorted(*a, info->size))
+	if (is_sorted(*a) == false)
 	{
 		pb(a, b, info);
 		info->size--;
