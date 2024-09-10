@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:19:34 by moni              #+#    #+#             */
-/*   Updated: 2024/09/09 20:13:55 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/09 20:23:56 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ int	main(int ac, char **av)
 	}
 	//	implicitement, si pas d'argument ou un seul argument
 	//	il ne se passe rien.
-	free(info);
+
+	(info);
 	free_stack(stack_a);
 
 	return (0);
