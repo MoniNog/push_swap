@@ -23,7 +23,9 @@ SRC = ft_atoi.c ft_putendl_fd.c ft_strlen.c ft_bzero.c \
 		ft_strcpy.c        ft_memset.c          ft_strdup.c\
 		ft_printf.c        ft_striteri.c        ft_strjoin.c\
 		ft_putnbr.c        ft_putchar.c         ft_strlcat.c\
-		ft_putchar_fd.c    ft_strlcpy.c         ft_memcmpext.c
+		ft_putchar_fd.c    ft_strlcpy.c         ft_memcmpext.c\
+		ft_iswhitespace.c
+
 
 # OBJS = $(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 OBJS = $(SRC:.c=.o)

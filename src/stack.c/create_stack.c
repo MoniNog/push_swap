@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 19:52:25 by moni              #+#    #+#             */
-/*   Updated: 2024/09/09 14:39:19 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/12 15:10:19 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,19 +67,19 @@ void	push_back(t_stack **stack, t_stack *new)
 /// @param[in]  info      Any additional information needed for creating the stack (size, move).
 /// @param[in]  ac        The argument count, typically passed from command-line arguments.
 /// @param[in]  av        The argument vector, the actual input values passed as strings.
-void	create_stack(t_stack **stack_a, t_stack **stack_b, t_info **info, int ac, char **av)
+void create_stack(t_stack **stack_a, t_stack **stack_b, t_info **info, int ac, char **av)
 {
-	t_stack	*new_number;
-	int		i;
+	t_stack *new_number;
+	int i;
 
 	*stack_b = NULL; // Just set *stack_b to NULL, no need to malloc
 
 	*info = malloc(sizeof(t_info));
 	if (!*info)
-		return ;
+		return;
 	(*info)->move = 0;
 	(*info)->size = 0;
-	
+
 	*stack_a = new_node(av[1], *info);
 	i = 2;
 	while (i < ac)

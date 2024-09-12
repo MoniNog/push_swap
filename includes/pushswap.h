@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:13:16 by moni              #+#    #+#             */
-/*   Updated: 2024/09/09 14:35:30 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/12 15:10:33 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_info
 	int				size;
 	int				move;
 	int				min_index;
+
 }					t_info;
 
 
@@ -90,7 +91,7 @@ typedef struct s_info
 
 
 // STACK
-	// STACK > CREAT STACK
+	// STACK > CREATE STACK
 		t_stack	*new_node(char *av, t_info *info);
 		void	push_back(t_stack **stack_a, t_stack *new);
 		void	create_stack(t_stack **stack_a, t_stack **stack_b, t_info** info, int ac, char **av);
@@ -111,6 +112,11 @@ typedef struct s_info
 // CHECKERS
 	bool	checks_are_ok(char *av);
 	bool	is_int(long number);
+
+// SPLIT
+char	*clean_whitespace(const char *s);
+char	**split(const char *s, char c);
+
 
 
 

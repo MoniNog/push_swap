@@ -1,4 +1,4 @@
-Avec Elise Klay:
+Avec Elise K. :
 - input : SPLIT, 
 - sort > 100 nombres (100 ok)
 - doublons et... 0 et -0
@@ -11,17 +11,31 @@ Moni :
 // OK - trier 1 nombre, implicite
 // OK - trier 0 nombre, implicite
 
+./ps "   3 4 65 2 1"
+3 4 5 2 7
 
 
 // OK - isdigitorspace -> checkers
 
 // OK - is_int -> new_node.c
+_____________________________________________________
+*****************************************************
 
+OU JEN SUIS :
 
+- split ok
+- clean space ok
 
+- par contre, implementation ne fonctionne pas. 
+	- sans guillemets oui
+	- avec guillemets NON !!! :(
 
+_____________________________________________________
 
+corr split
+implementation dans ps
 
+essayer de reecrire split par moi-meme
 
 
 

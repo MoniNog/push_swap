@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:44:03 by moni              #+#    #+#             */
-/*   Updated: 2024/09/03 19:02:09 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/11 09:48:40 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);
+// int		ft_iswhitespace(int c);
 int		ft_isprint(int c);
 char	*ft_itoa(int n);
 void	*ft_memset(void *s, int c, size_t n);
