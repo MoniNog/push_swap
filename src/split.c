@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 17:58:53 by moni              #+#    #+#             */
-/*   Updated: 2024/09/12 15:08:00 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/14 19:58:06 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,12 +87,17 @@ char	**split(const char *s, char c)
 	return (array);
 }
 
+// int	ft_iswhitespace(int c)
+// {
+// 	if ()
+// 		return (0);//pas un whitespace
+// 	return (1);//whitespace
+// }
 int	ft_iswhitespace(int c)
 {
-	if (!(c == ' ' || c == '\t' || c == '\n' || c == '\r' || c == '\v'
-			|| c == '\f'))
-		return (0);//pas un whitespace
-	return (1);//whitespace
+	return (c == ' ' || c == '\t'
+		|| c == '\n' || c == '\r'
+		|| c == '\v' || c == '\f');
 }
 
 char *clean_whitespace(const char *s)
@@ -108,22 +113,22 @@ char *clean_whitespace(const char *s)
 		return NULL;
 	while (s[i])
 	{
-		while (ft_iswhitespace(s[i]) == 1)
+		while (ft_iswhitespace(s[i]) == 1)// tant quil y a un espce, avance
 			i++;
-		while(s[i] && ft_iswhitespace(s[i]) == 0)
+		while(s[i] && ft_iswhitespace(s[i]) == 0)// tant que ce nest pas un espace, copie
 		{
-			dest[j] = s[i];
+			dest[j] = s[i];// dest est la copie "nettoyee"
 			i++;
 			j++;
 		}
-		if (s[i])
+		if (s[i])// si s existe encore, copie un espace
 		{
 			dest[j] = ' ';
 			j++;
 		}
 	}
-	dest[j] = '\0'; // Add null terminator to the destination string
-	return(dest);
+	dest[j] = '\0'; //char de fin
+	return (dest); // renvoie dest qui est la copie nettoyee
 }
 
 // int main(int ac, char **av)
@@ -160,10 +165,12 @@ char *clean_whitespace(const char *s)
 // 	char c;
 // 	char *s;
 
-// 	s = "hello world are you there ?";
-// 	c = ' ';
+// 	// s = "hello world   are you   there ?";
+// 	s = "3  	 5   2 10    1";
+// 	// c = ' ';
 
-// 	char **result = split(s, c);
+// 	char *tmp = clean_whitespace(s);
+// 	char **result = split(tmp, ' ');
 // 	if (result)
 // 	{
 // 		int i = 0;
