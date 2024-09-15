@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 19:52:37 by moni              #+#    #+#             */
-/*   Updated: 2024/09/15 18:24:54 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/15 18:33:02 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,33 +20,24 @@ void	print_stack(t_stack* stack_a, t_stack* stack_b, t_info* info)
 {
 	int index;
 
-	index = 0;
-
-	// Vérifie si la pile B est vide
-	if (!stack_b)
-	{
-		printf(BLUE "\n\t\t\t┌───────────────┐\n");
-		printf("\t\t\t│ Empty stack_b │\n");
-		printf("\t\t\t└───────────────┘\n");
-		printf("\t\t\t  * ** *** ** *  " RESET "\n");
-	}
-
+	index = 1;
 	// Affichage principal
-	printf(RED "\n\n─────────────────────────────────────────────────────────" BLUE "\n\n");
+	printf(RED "\n─────────────────────────────────────────────────────────" BLUE "\n");
 	printf(BLUE "┌───────────────┐\t┌───────────────┐\n");
 	printf("│    Stack A    │\t│    Stack B    │\n");
 	printf("└───────────────┘\t└───────────────┘\n");
 	printf("┌─────┬─────────┐\t┌─────┬─────────┐\n");
-	printf("│" RED " Ind " BLUE "│"  RED "  Value  "  BLUE "│\t│" RED " Ind " BLUE "│" "  Value  " BLUE "│\n");
+	printf("│" RED " Ind " BLUE "│  Value  │\t│" RED " Ind " BLUE "│" "  Value  " BLUE "│\n");
 	printf("├─────┼─────────┤\t├─────┼─────────┤\n" RESET);
 
+	stack_a = stack_a->next;
 	// Affiche les éléments des piles tant qu'ils existent
 	while (index < info->size)
 	{
 		if (stack_a)
 		{
 			// Affichage bien aligné pour Stack A
-			printf(BLUE "│ " RED "%2d  " BLUE "│ " RED "%5d\t" BLUE "│\t", index, stack_a->content);
+			printf(BLUE "│ " RED "%2d  " BLUE "│ %5d\t│\t", index, stack_a->content);
 			stack_a = stack_a->next;
 		}
 		else
@@ -66,14 +57,14 @@ void	print_stack(t_stack* stack_a, t_stack* stack_b, t_info* info)
 		index++;
 	}
 	
-	printf("└─────┴─────────┘\t└─────┴─────────┘" RESET "\n\n");
-	printf(RED "─────────────────────────────────────────────────────────" RESET "\n\n");
+	printf("└─────┴─────────┘\t└─────┴─────────┘" RESET "\n");
+	printf(RED "─────────────────────────────────────────────────────────" RESET "\n");
 }
 
 void	print_move_and_size(t_stack* stack_a, t_stack* stack_b, t_info* info)
 {
 	printf("\t" BLUE "┌─────────────────────────┐\n");
-	printf("\t│" RED "    Count move : %2i" BLUE "      │\n", info->move);
+	printf("\t│" RED "    Count move : %3i" BLUE "     │\n", info->move);
 	printf("\t└─────────────────────────┘\n");
 
 	printf("\n\t" BLUE "┌─────────────────────────┐\n");
