@@ -80,9 +80,9 @@ void create_stack(t_stack **stack_a, t_stack **stack_b, t_info **info, int ac, c
 	(*info)->move = 0;
 	(*info)->size = 0;
 
-	*stack_a = new_node(av[1], *info);
-	i = 2;
-	while (i < ac)
+	*stack_a = new_node(av[0], *info);
+	i = 1;
+	while (av[i])
 	{
 		new_number = new_node(av[i], *info);
 		if (new_number)

@@ -50,9 +50,6 @@ char	**split(const char *s, char c)
 			n_word++;
 		i++;
 	}
-	if (n_word != 0 && s[i - 1] != c) // "alo?" "oups "
-	 	n_word++;
-
 	
 	array = malloc(sizeof(char*) * n_word);
 	if (!array)
@@ -87,12 +84,6 @@ char	**split(const char *s, char c)
 	return (array);
 }
 
-// int	ft_iswhitespace(int c)
-// {
-// 	if ()
-// 		return (0);//pas un whitespace
-// 	return (1);//whitespace
-// }
 int	ft_iswhitespace(int c)
 {
 	return (c == ' ' || c == '\t'

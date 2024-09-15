@@ -34,6 +34,7 @@ int	main(int ac, char **av)
 	{
 		if (ac == 2)
 		{
+			av[1] = clean_whitespace(av[1]);
 			z = split(av[1], ' ');
 			while (z[i])
 			{
@@ -41,8 +42,10 @@ int	main(int ac, char **av)
 				i++;
 			}
 			i++;
+		} else {
+			z = av + 1;
 		}
-		create_stack(&stack_a, &stack_b, &info, ac, av);// !! ici pour les arg
+		create_stack(&stack_a, &stack_b, &info, ac, z);// !! ici pour les arg
 		// print_stack(stack_a, stack_b, info);
 		// choose_sort(&stack_a, &stack_b, info);
 		// print_stack(stack_a, stack_b, info);
