@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:19:34 by moni              #+#    #+#             */
-/*   Updated: 2024/09/15 18:13:08 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/15 18:42:57 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,12 @@ int	main(int ac, char **av)
 			i++;
 		}
 		create_stack(&stack_a, &stack_b, &info, ac, av);// !! ici pour les arg
-		print_stack(stack_a, stack_b, info);
-		choose_sort(&stack_a, &stack_b, info);
-		print_stack(stack_a, stack_b, info);
+		// print_stack(stack_a, stack_b, info);
+		// choose_sort(&stack_a, &stack_b, info);
+		// print_stack(stack_a, stack_b, info);
 		print_move_and_size(stack_a, stack_b, info);
 
+		// free(*info);
 		free(info);
 		free_stack(stack_a);
 	}

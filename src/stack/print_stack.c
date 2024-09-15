@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 19:52:37 by moni              #+#    #+#             */
-/*   Updated: 2024/09/15 18:33:02 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/15 18:36:23 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	print_stack(t_stack* stack_a, t_stack* stack_b, t_info* info)
 {
 	int index;
 
-	index = 1;
+	index = 0;
 	// Affichage principal
 	printf(RED "\n─────────────────────────────────────────────────────────" BLUE "\n");
 	printf(BLUE "┌───────────────┐\t┌───────────────┐\n");
@@ -30,7 +30,6 @@ void	print_stack(t_stack* stack_a, t_stack* stack_b, t_info* info)
 	printf("│" RED " Ind " BLUE "│  Value  │\t│" RED " Ind " BLUE "│" "  Value  " BLUE "│\n");
 	printf("├─────┼─────────┤\t├─────┼─────────┤\n" RESET);
 
-	stack_a = stack_a->next;
 	// Affiche les éléments des piles tant qu'ils existent
 	while (index < info->size)
 	{

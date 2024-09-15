@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 19:52:25 by moni              #+#    #+#             */
-/*   Updated: 2024/09/14 20:41:43 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/15 18:53:48 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,20 +80,13 @@ void create_stack(t_stack **stack_a, t_stack **stack_b, t_info **info, int ac, c
 	(*info)->move = 0;
 	(*info)->size = 0;
 
-	i = 0;
-	while (i < ac) {
+	*stack_a = new_node(av[1], *info);
+	i = 2;
+	while (i < ac)
+	{
 		new_number = new_node(av[i], *info);
 		if (new_number)
 			push_back(stack_a, new_number);
 		i++;
 	}
-	// *stack_a = new_node(av[1], *info);
-	// i = 2;
-	// while (i < ac)
-	// {
-	// 	new_number = new_node(av[i], *info);
-	// 	if (new_number)
-	// 		push_back(stack_a, new_number);
-	// 	i++;
-	// }
 }
