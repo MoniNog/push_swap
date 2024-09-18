@@ -64,8 +64,13 @@ void	choose_sort(t_stack **a, t_stack **b, t_info *info)
 		return ;
 	}
 	else
-	{
+	{	
 		sort_n(a, b, info);
 		return ;
 	}
+	// else
+	// {
+	// 	big_sort(a, b, info);
+	// 	return ;
+	// }
 }

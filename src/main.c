@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:19:34 by moni              #+#    #+#             */
-/*   Updated: 2024/09/15 18:42:57 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/18 21:30:47 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,41 +23,30 @@ int	main(int ac, char **av)
 	stack_a = NULL;
 	stack_b = NULL;
 	info = NULL;
-
-	// si ac > 2 ne pas utiliser split 
-	// si ac = 2 utiliser split
-
-	// ./pushswap 1 5 2 3
-	// ./pushswap "1 5 2   	 3"
-	int i = 0;
 	if (checks_are_ok(av[1]) == true && ac > 1)
 	{
 		if (ac == 2)
 		{
 			av[1] = clean_whitespace(av[1]);
 			z = split(av[1], ' ');
-			while (z[i])
-			{
-				printf("|%s|\n", z[i]);
-				i++;
-			}
-			i++;
-		} else {
-			z = av + 1;
 		}
-		create_stack(&stack_a, &stack_b, &info, ac, z);// !! ici pour les arg
+		else
+			z = av + 1;// z devient le premier arg apres le nom du programme
+		create_stack(&stack_a, &stack_b, &info, ac, z);
+		// pb(&stack_a, &stack_b, info);
+		// pb(&stack_a, &stack_b, info);
+		// //pb(&stack_a, &stack_b, info);
+		// //pb(&stack_a, &stack_b, info);
+		// // sort_2(&stack_a, &stack_b, info);// sort stack b avec le plus grand en haut
 		// print_stack(stack_a, stack_b, info);
-		// choose_sort(&stack_a, &stack_b, info);
+		// calculate_price(stack_a, stack_b, info);
+		// print_stack(stack_a, stack_b, info);
+		choose_sort(&stack_a, &stack_b, info);
 		// print_stack(stack_a, stack_b, info);
 		print_move_and_size(stack_a, stack_b, info);
 
-		// free(*info);
 		free(info);
 		free_stack(stack_a);
 	}
 	return (0);
 }
-
-
-		//	implicitement, si pas d'argument ou un seul argument
-		//	il ne se passe rien.

@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 19:52:37 by moni              #+#    #+#             */
-/*   Updated: 2024/09/15 18:36:23 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/18 20:10:24 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	print_stack(t_stack* stack_a, t_stack* stack_b, t_info* info)
 		if (stack_b)
 		{
 			// Affichage bien aligné pour Stack B
-			printf("│ " RED "%2d  " BLUE "│ " RED "%5d" BLUE " │\n", index, stack_b->content);
+			printf("│ " RED "%2d  " BLUE "│" RED "%5d\t" BLUE "│\n", index, stack_b->content);
 			stack_b = stack_b->next;
 		}
 		else

@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:13:16 by moni              #+#    #+#             */
-/*   Updated: 2024/09/12 15:10:33 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/17 21:15:36 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_stack
 	int				content;
 	struct s_stack	*next;
 	struct s_stack	*prev;
+	int				price;
 }					t_stack;
 
 typedef struct s_info
@@ -39,7 +40,6 @@ typedef struct s_info
 	int				min_index;
 
 }					t_info;
-
 
 //	FUN
 	//	FUN > PUSH
@@ -57,6 +57,7 @@ typedef struct s_info
 		void	rotate(t_stack **stack);// Rot vers le haut
 		void	rb(t_stack **stack_b, t_info *info);
 		void	ra(t_stack **stack_a, t_info *info);
+		void	rr(t_stack **stack_a, t_stack **stack_b, t_info *info);
 
 	//	FUN > REVERSE ROTATE
 		void	reverse_rotate(t_stack **stack);// Rot vers le bas
@@ -85,9 +86,12 @@ typedef struct s_info
 		bool	is_sorted(t_stack *a);
 		int		find_min(t_stack *stack, t_info *info);
 		int		find_max(t_stack *stack);
-		int		stack_size(t_stack **stack);
-		// int		*dup_a_to_c(t_stack **stack, t_info *info); // on process
-		// int		index_of_number_on_stack(t_stack **stack, t_stack *number);// on process
+		// int		stack_size(t_stack **stack);
+
+	// SORT > SORT 100 500
+		void	calculate_price(t_stack *a, t_stack *b, t_info *info);
+
+
 
 
 // STACK
