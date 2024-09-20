@@ -1,4 +1,5 @@
-nombre premier
+level 3
+nombre premier 
 base (atoi)
 list size
 ft_range
@@ -10,6 +11,7 @@ atoi
 
 revoir les bases (base de 8, etc.)
 
+level 4
 itoa
 flood fill
 prime factor

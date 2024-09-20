@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:19:34 by moni              #+#    #+#             */
-/*   Updated: 2024/09/18 21:30:47 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/20 11:47:55 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,21 @@ int	main(int ac, char **av)
 		else
 			z = av + 1;// z devient le premier arg apres le nom du programme
 		create_stack(&stack_a, &stack_b, &info, ac, z);
-		// pb(&stack_a, &stack_b, info);
-		// pb(&stack_a, &stack_b, info);
-		// //pb(&stack_a, &stack_b, info);
-		// //pb(&stack_a, &stack_b, info);
-		// // sort_2(&stack_a, &stack_b, info);// sort stack b avec le plus grand en haut
-		// print_stack(stack_a, stack_b, info);
-		// calculate_price(stack_a, stack_b, info);
-		// print_stack(stack_a, stack_b, info);
-		choose_sort(&stack_a, &stack_b, info);
-		// print_stack(stack_a, stack_b, info);
-		print_move_and_size(stack_a, stack_b, info);
+		print_stack(stack_a, stack_b, info);
+		pb(&stack_a, &stack_b, info);
+		pb(&stack_a, &stack_b, info);
+		pb(&stack_a, &stack_b, info);
+		pb(&stack_a, &stack_b, info);
+		print_stack(stack_a, stack_b, info);
+		calculate_price(stack_a, stack_b, info);
+		find_best_price(stack_a);
+	
+		// print_move_and_size(stack_a, stack_b, info);
 
 		free(info);
 		free_stack(stack_a);
 	}
 	return (0);
 }
+
+		// choose_sort(&stack_a, &stack_b, info);

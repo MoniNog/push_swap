@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:13:16 by moni              #+#    #+#             */
-/*   Updated: 2024/09/17 21:15:36 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/20 11:57:18 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef struct s_stack
 	struct s_stack	*next;
 	struct s_stack	*prev;
 	int				price;
+	int				stage_a;
+	int				stage_b;
 }					t_stack;
 
 typedef struct s_info
@@ -90,7 +92,7 @@ typedef struct s_info
 
 	// SORT > SORT 100 500
 		void	calculate_price(t_stack *a, t_stack *b, t_info *info);
-
+		t_stack *find_best_price(t_stack *a);
 
 
 
