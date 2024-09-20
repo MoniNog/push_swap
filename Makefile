@@ -1,13 +1,14 @@
 NAME = push_swap
 CC = gcc
 CFLAGS =  -Wall -Wextra -I./lib/libft -Wno-unused-parameter
-# CFLAGS =  -Wall -Wextra -I./lib/libft -Wno-unused-parameter
+# CFLAGS =  -Wall -Wextra -g3 -fsanitize=address -I./lib/libft -Wno-unused-parameter
 LIBFT_PATH = ./lib/libft
 LIBFT = -L$(LIBFT_PATH) -lft
 
 SRC = src/fun/push.c src/fun/rotate.c src/fun/reverse_rotate.c src/fun/swap.c\
 		src/sort/sort.c src/sort/sort_3.c src/sort/sort_4.c src/sort/utils_sort.c\
-		src/stack.c/create_stack.c src/stack.c/print_stack.c src/stack.c/utils_stack.c\
+		src/sort/sort_big.c src/sort/sort_100_500.c\
+		src/stack/create_stack.c src/stack/print_stack.c src/stack/utils_stack.c\
 		src/memory_management.c src/main.c src/checkers.c src/split.c
 
 OBJS = $(SRC:.c=.o)
