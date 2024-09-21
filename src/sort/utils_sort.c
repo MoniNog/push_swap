@@ -6,11 +6,82 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 19:52:07 by moni              #+#    #+#             */
-/*   Updated: 2024/09/21 18:18:50 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/21 18:29:21 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
+
+int get_stack_size(t_stack *stack)
+{
+    int size = 0;
+    while (stack != NULL) {
+        size++;
+        stack = stack->next;
+    }
+    return size;
+}
+
+int find_index(int *sorted_arr, int size, int value) {
+    for (int i = 0; i < size; i++) {
+        if (sorted_arr[i] == value) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+void sort_array(int *arr, int size) {
+    int temp;
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = i + 1; j < size; j++) {
+            if (arr[i] > arr[j]) {
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+}
+int find_min(t_stack *stack, t_info *info)
+{
+    int min;
+    int i = 0;
+    stack->min_index = 0;
+    
+    min = stack->content;
+    while (stack)
+    {
+        if (min > stack->content) 
+        {
+            min = stack->content;
+            stack->min_index = i;
+        }
+        stack = stack->next;
+        i++;
+    }
+    return min;
+}
+
+int        find_max(t_stack *stack)
+{
+    int        max;
+    int        i = 0;
+    stack->max_index = 0;
+    
+    max = stack->content;
+    while (stack)// besoin de 2 pour comparer
+    {
+        if (max < stack->content)
+        {
+            max = stack->content;
+            stack->max_index = i;
+        }
+        stack = stack->next;
+        i++;
+    }
+    return(max);
+}
 
 void replace_with_indices(t_stack **stack_a)
 {
@@ -85,8 +156,8 @@ int find_max_index(t_stack *stack) {
 int find_min_index(t_stack *stack) 
 {
     int		min;
-	int		min_index = 0;
-    int		index = 0;
+	int		min_index	= 0;
+    int		index 		= 0;
 
     if (!stack)
         return -1;
