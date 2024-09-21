@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 19:52:07 by moni              #+#    #+#             */
-/*   Updated: 2024/09/21 18:29:21 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/21 18:56:53 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,6 @@ int find_max_index(t_stack *stack) {
         index++;
     }
     
-	stack->max = max;
     return max_index;
 }
 
@@ -173,6 +172,5 @@ int find_min_index(t_stack *stack)
         index++;
     }
     
-    stack->min = min;
     return min_index;
 }

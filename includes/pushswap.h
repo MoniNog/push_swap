@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:13:16 by moni              #+#    #+#             */
-/*   Updated: 2024/09/21 18:27:37 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/21 18:55:40 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,9 +121,10 @@ typedef struct s_info
 		void	replace_with_indices(t_stack **stack_a);
 		bool	is_sorted(t_stack *a);
 		void	print_stack_big(t_stack *stack, char name);
-		int		find_max_index(t_stack *stack);
-		int		find_min_index(t_stack *stack);
-		
+
+		// t_stack	*pop(t_stack **stack);// not used but usefull for lib
+		// void	push(t_stack **stack_a, t_stack *new);// not used but usefull for lib
+
 
 // MEMORY MANAGEMENT
 	void	free_stack(t_stack *stack);
