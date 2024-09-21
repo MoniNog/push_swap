@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:19:34 by moni              #+#    #+#             */
-/*   Updated: 2024/09/20 11:47:55 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/21 16:15:33 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int	main(int ac, char **av)
 	
 		// print_move_and_size(stack_a, stack_b, info);
 
+		if (stack_b)
+			free_stack(stack_b);
 		free(info);
 		free_stack(stack_a);
 	}

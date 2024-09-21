@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 09:20:49 by moni              #+#    #+#             */
-/*   Updated: 2024/09/09 13:48:04 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/21 16:23:18 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 void sort_4(t_stack **a, t_stack **b, t_info *info)
 {
 	find_min(*a, info);
-	if (info->min_index == 0)
+	if ((*a)->min_index == 0)
 	{
 		pb(a, b, info);
 		sort_3(a, b, info);
 		pa(a, b, info);
 		return;
 	}
-	else if (info->min_index == 1)
+	else if ((*a)->min_index == 1)
 	{
 		ra(a, info);
 		pb(a, b, info);
@@ -31,7 +31,7 @@ void sort_4(t_stack **a, t_stack **b, t_info *info)
 		pa(a, b, info);
 		return;
 	}
-	else if (info->min_index == 2)
+	else if ((*a)->min_index == 2)
 	{
 		rra(a, info);
 		rra(a, info);
@@ -40,7 +40,7 @@ void sort_4(t_stack **a, t_stack **b, t_info *info)
 		pa(a, b, info);
 		return;
 	}
-	else if (info->min_index == 3)
+	else if ((*a)->min_index == 3)
 	{
 		rra(a, info);
 		pb(a, b, info);
@@ -53,14 +53,14 @@ void sort_4(t_stack **a, t_stack **b, t_info *info)
 void sort_5(t_stack **a, t_stack **b, t_info *info)
 {
 	find_min(*a, info);
-	if (info->min_index == 0)
+	if ((*a)->min_index == 0)
 	{
 		pb(a, b, info);
 		sort_4(a, b, info);
 		pa(a, b, info);
 		return;
 	}
-	else if (info->min_index == 1)
+	else if ((*a)->min_index == 1)
 	{
 		ra(a, info);
 		pb(a, b, info);
@@ -68,7 +68,7 @@ void sort_5(t_stack **a, t_stack **b, t_info *info)
 		pa(a, b, info);
 		return;
 	}
-	else if (info->min_index == 2)
+	else if ((*a)->min_index == 2)
 	{
 		ra(a, info);
 		ra(a, info);
@@ -77,7 +77,7 @@ void sort_5(t_stack **a, t_stack **b, t_info *info)
 		pa(a, b, info);
 		return;
 	}
-	else if (info->min_index == 3)
+	else if ((*a)->min_index == 3)
 	{
 		rra(a, info);
 		rra(a, info);
@@ -86,7 +86,7 @@ void sort_5(t_stack **a, t_stack **b, t_info *info)
 		pa(a, b, info);
 		return;
 	}
-	else if (info->min_index == 4)
+	else if ((*a)->min_index == 4)
 	{
 		rra(a, info);
 		pb(a, b, info);
@@ -102,10 +102,10 @@ void sort_n(t_stack **a, t_stack **b, t_info *info)
 		return;
 
 	find_min(*a, info);
-	if (info->min_index < info->size / 2)
+	if ((*a)->min_index < info->size / 2)
 	{
 		int i = 0;
-		while (i < info->min_index)
+		while (i < (*a)->min_index)
 		{
 			ra(a, info);
 			i++;
@@ -114,7 +114,7 @@ void sort_n(t_stack **a, t_stack **b, t_info *info)
 	else
 	{
 		int i = 0;
-		while (i < info->size - info->min_index)
+		while (i < info->size - (*a)->min_index)
 		{
 			rra(a, info);
 			i++;
