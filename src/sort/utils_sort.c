@@ -6,52 +6,38 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 19:52:07 by moni              #+#    #+#             */
-/*   Updated: 2024/09/20 17:09:01 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/21 18:18:50 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
 
-int find_min(t_stack *stack, t_info *info)
+void replace_with_indices(t_stack **stack_a)
 {
-	int min;
-	int i = 0;
-	stack->min_index = 0;
-	
-	min = stack->content;
-	while (stack)
-	{
-		if (min > stack->content) 
-		{
-			min = stack->content;
-			stack->min_index = i;
-		}
-		stack = stack->next;
-		i++;
-	}
-	return min;
+    int size = get_stack_size(*stack_a);
+    
+    int *values = (int *)malloc(size * sizeof(int));
+    t_stack *tmp = *stack_a;
+    for (int i = 0; i < size; i++) {
+        values[i] = tmp->content;
+        tmp = tmp->next;
+    }
+    
+    int *sorted_values = (int *)malloc(size * sizeof(int));
+    for (int i = 0; i < size; i++) {
+        sorted_values[i] = values[i];
+    }
+    sort_array(sorted_values, size);
+    
+    tmp = *stack_a;
+    while (tmp != NULL) {
+        tmp->content = find_index(sorted_values, size, tmp->content);
+        tmp = tmp->next;
+    }
+    
+    free(values);
+    free(sorted_values);
 }
-
-int		find_max(t_stack *stack)
-{
-	int		max;
-	int		i = 0;
-	stack->max_index = 0;
-	
-	max = stack->content;
-	while (stack)// besoin de 2 pour comparer
-	{
-		if (max < stack->content)
-		{
-			max = stack->content;
-			stack->max_index = i;
-		}
-		stack = stack->next;
-		i++;
-	}
-	return(max);
-}
-
 bool	is_sorted(t_stack *a)
 {
 	while (a->next)
@@ -78,9 +64,8 @@ int find_max_index(t_stack *stack) {
     int max_index = 0;
     int index = 0;
 
-    if (!stack) {
+    if (!stack)
         return -1;
-    }
 
     max = stack->content;
     
@@ -93,17 +78,18 @@ int find_max_index(t_stack *stack) {
         index++;
     }
     
+	stack->max = max;
     return max_index;
 }
 
-int find_min_index(t_stack *stack) {
-    int min;
-    int min_index = 0;
-    int index = 0;
+int find_min_index(t_stack *stack) 
+{
+    int		min;
+	int		min_index = 0;
+    int		index = 0;
 
-    if (!stack) {
+    if (!stack)
         return -1;
-    }
 
     min = stack->content;
     
@@ -116,5 +102,6 @@ int find_min_index(t_stack *stack) {
         index++;
     }
     
+    stack->min = min;
     return min_index;
 }

@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:13:16 by moni              #+#    #+#             */
-/*   Updated: 2024/09/21 15:04:13 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/21 18:16:08 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ typedef struct s_stack
 	int				min_index;
 	int				max_index;
 	int				index;
+	int				min;
+	int 			max;
 }					t_stack;
 
 typedef struct s_info
