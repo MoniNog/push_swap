@@ -64,4 +64,57 @@ bool	is_sorted(t_stack *a)
 	return true;
 }
 
+void print_stack_big(t_stack *stack, char name) {
+    printf("Stack elements %c: ", name);
+    while (stack != NULL) {
+        printf("%d ", stack->content);
+        stack = stack->next;
+    }
+    printf("\n");
+}
 
+int find_max_index(t_stack *stack) {
+    int max;
+    int max_index = 0;
+    int index = 0;
+
+    if (!stack) {
+        return -1;
+    }
+
+    max = stack->content;
+    
+    while (stack != NULL) {
+        if (stack->content > max) {
+            max = stack->content;
+            max_index = index;
+        }
+        stack = stack->next;
+        index++;
+    }
+    
+    return max_index;
+}
+
+int find_min_index(t_stack *stack) {
+    int min;
+    int min_index = 0;
+    int index = 0;
+
+    if (!stack) {
+        return -1;
+    }
+
+    min = stack->content;
+    
+    while (stack != NULL) {
+        if (stack->content < min) {
+            min = stack->content;
+            min_index = index;
+        }
+        stack = stack->next;
+        index++;
+    }
+    
+    return min_index;
+}

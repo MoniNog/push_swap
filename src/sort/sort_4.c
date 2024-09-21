@@ -15,7 +15,8 @@
 
 void sort_4(t_stack **a, t_stack **b, t_info *info)
 {
-	find_min(*a, info);
+	(*a)->min_index = find_min_index(*a);
+	printf("Min pos:  %i", (*a)->min_index);
 	if ((*a)->min_index == 0)
 	{
 		pb(a, b, info);
@@ -129,4 +130,7 @@ void sort_n(t_stack **a, t_stack **b, t_info *info)
 		info->size++;
 		pa(a, b, info);
 	}
+
+	print_stack_big(*a, 'a');
+	print_stack_big(*b, 'b');
 }

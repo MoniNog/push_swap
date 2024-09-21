@@ -90,6 +90,9 @@ typedef struct s_info
 		bool	is_sorted(t_stack *a);
 		int		find_min(t_stack *stack, t_info *info);
 		int		find_max(t_stack *stack);
+		void print_stack_big(t_stack *stack, char name);
+		int find_max_index(t_stack *stack);
+		int find_min_index(t_stack *stack);
 		// int		stack_size(t_stack **stack);
 
 	// SORT > SORT 100 500
