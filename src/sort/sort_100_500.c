@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 18:14:15 by moni              #+#    #+#             */
-/*   Updated: 2024/09/20 12:32:32 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/21 16:07:32 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,32 +34,54 @@ t_stack *find_last(t_stack *stack)
 		stack = stack->next;
 	return (stack);
 }
+#include <stdio.h>
 
-void	calculate_price(t_stack *a, t_stack *b, t_info *info)
+// Définir des macros pour les couleurs
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define YELLOW  "\033[33m"
+#define BLUE    "\033[34m"
+#define RESET   "\033[0m"
+
+// 1er probleme : pour le new_min, il trouve pas forcement ou se glisser, ou se trouve le debut de liste
+
+void calculate_price(t_stack *a, t_stack *b, t_info *info)
 {
 	int			stage_b;
 	t_stack		*top_b;
 	int			stage_a;
 
 	stage_a = 0;
-	top_b = b;//repere pour le haut de la stack b
-	while(a)// parcourir tous les element de la stack a
+	top_b = b;
+
+	// En-tête du tableau avec séparateurs
+	printf("┌─────┬─────┬─────┬─────┬──────┐\n");
+	printf("│ %-3s │ %-3s │ %-3s │ %-3s │ %-4s │\n", "nb", "$A", "-", "$B", "$$");
+	printf("├─────┼─────┼─────┼─────┼──────┤\n");
+
+	while (a)
 	{
 		b = top_b;
-		stage_b = 1;
-        // suis je dans un cas ou a et un nouveau min ou un nouveau max ?
+		stage_b = 0;
+		const char *min_max_flag = "";  // Pour spécifier "min" ou "max"
+
 		if (a->content < find_min(b, info))
 		{
-			printf("%i = min // price : %i\n", a->content, stage_a);
-			a->price = stage_a;
-			// a->stage_b = ...;
-			// while (a->content )
-
+			while (b->content == b->max_index)
+			{	
+				stage_b++;
+				b = b->next;
+			}
+			min_max_flag = RED "min" RESET;
 		}
 		else if (a->content > find_max(b))
 		{		
-			a->price = stage_a;
-			printf("%i = max // price : %i\n", a->content, stage_a);
+			while (b->next && b->content != b->max_index)
+			{
+				stage_b++;
+				b = b->next;
+			}
+			min_max_flag = BLUE "max" RESET;
 		}
 		else 
 		{
@@ -70,20 +92,25 @@ void	calculate_price(t_stack *a, t_stack *b, t_info *info)
 				{
 					stage_b++;
 					b = b->next;
-					// a->stage_b = stage_b;
 				}
-			if (stage_b >= stage_a)
-				a->price = stage_b;
-			else
-				a->price = stage_a;
-
-			printf("price de %i = (stage_b = %i // STAGE = %i) %i\n", a->content, stage_b, stage_a, a->price);
 		}
-		a = a->next;// change de nombre a
-		
-		// a->stage_a = stage_a;
+		if (stage_b >= stage_a)
+			a->price = stage_b;
+		else
+			a->price = stage_a;
+
+		// Affichage du contenu sous forme de tableau avec lignes de séparation et couleurs
+		printf("│ %-3i │ %-3i │     │ %-3i │ %-4i │ %s\n", a->content, stage_a, stage_b, a->price, min_max_flag);
+
+		// Séparation entre les lignes pour mieux visualiser chaque étape
+		printf("├─────┼─────┼─────┼─────┼──────┤\n");
+
+		a = a->next;
 		stage_a++;
 	}
+
+	// Ligne de fin du tableau
+	printf("└─────┴─────┴─────┴─────┴──────┘\n");
 }
 
 // sequence
@@ -99,7 +126,7 @@ void	calculate_price(t_stack *a, t_stack *b, t_info *info)
 // 		check si seq sexecute correctement et comme prevu et logique
 // void executer_seq() 
 // ev changer terme stack
-    
+	
 // // 	stage_b = 
 
 

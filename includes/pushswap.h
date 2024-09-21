@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:13:16 by moni              #+#    #+#             */
-/*   Updated: 2024/09/20 11:57:18 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/21 15:04:13 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,15 @@ typedef struct s_stack
 	int				price;
 	int				stage_a;
 	int				stage_b;
+	int				min_index;
+	int				max_index;
+	int				index;
 }					t_stack;
 
 typedef struct s_info
 {
 	int				size;
 	int				move;
-	int				min_index;
 
 }					t_info;
 

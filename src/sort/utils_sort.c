@@ -6,28 +6,28 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 19:52:07 by moni              #+#    #+#             */
-/*   Updated: 2024/09/09 20:37:39 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/20 17:09:01 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
 
-int find_min(t_stack *stack, t_info *info) {
+int find_min(t_stack *stack, t_info *info)
+{
 	int min;
-	int i;
+	int i = 0;
+	stack->min_index = 0;
 	
 	min = stack->content;
-	info->min_index = 0;
-	i = 0;
-	while (stack->next)
+	while (stack)
 	{
-		i++;
-		if (min > stack->next->content) 
+		if (min > stack->content) 
 		{
-			min = stack->next->content;
-			info->min_index = i;
+			min = stack->content;
+			stack->min_index = i;
 		}
 		stack = stack->next;
+		i++;
 	}
 	return min;
 }
@@ -35,13 +35,19 @@ int find_min(t_stack *stack, t_info *info) {
 int		find_max(t_stack *stack)
 {
 	int		max;
+	int		i = 0;
+	stack->max_index = 0;
 	
 	max = stack->content;
-	while (stack->next)// besoin de 2 pour comparer
+	while (stack)// besoin de 2 pour comparer
 	{
-		if (max < stack->next->content)
-			max = stack->next->content;
+		if (max < stack->content)
+		{
+			max = stack->content;
+			stack->max_index = i;
+		}
 		stack = stack->next;
+		i++;
 	}
 	return(max);
 }
