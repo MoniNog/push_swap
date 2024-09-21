@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 09:20:49 by moni              #+#    #+#             */
-/*   Updated: 2024/09/21 16:23:18 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/21 18:04:33 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void sort_4(t_stack **a, t_stack **b, t_info *info)
 {
 	(*a)->min_index = find_min_index(*a);
-	printf("Min pos:  %i", (*a)->min_index);
+	// printf("Min pos:  %i", (*a)->min_index);
 	if ((*a)->min_index == 0)
 	{
 		pb(a, b, info);
@@ -53,7 +53,7 @@ void sort_4(t_stack **a, t_stack **b, t_info *info)
 
 void sort_5(t_stack **a, t_stack **b, t_info *info)
 {
-	find_min(*a, info);
+	(*a)->min_index = find_min_index(*a);
 	if ((*a)->min_index == 0)
 	{
 		pb(a, b, info);
@@ -97,40 +97,49 @@ void sort_5(t_stack **a, t_stack **b, t_info *info)
 	}
 }
 
-void sort_n(t_stack **a, t_stack **b, t_info *info)
-{
-	if (info->size <= 1)
-		return;
+// void sort_n(t_stack **a, t_stack **b, t_info *info)
+// {
+// 	if (info->size <= 1)
+// 		return;
 
-	find_min(*a, info);
-	if ((*a)->min_index < info->size / 2)
-	{
-		int i = 0;
-		while (i < (*a)->min_index)
-		{
-			ra(a, info);
-			i++;
-		}
-	}
-	else
-	{
-		int i = 0;
-		while (i < info->size - (*a)->min_index)
-		{
-			rra(a, info);
-			i++;
-		}
-	}
+// 	(*a)->min_index = find_min_index(*a);
+// 	int half_size = info->size / 2;
+// 	if ((*a)->min_index < half_size)
+// 	{
+// 		int i = 0;
+// 		print_stack(*a, *b, info);
+// 		printf("half : %i, %i, %i, %i\n", i, info->size, (*a)->min_index, half_size);
+// 		while (i < (*a)->min_index)
+// 		{
+// 			printf("i: %i, (*a)->min_index : %i\n\n", i, (*a)->min_index);
+// 			ra(a, info);
+// 			printf("i: %i, (*a)->min_index : %i\n\n", i, (*a)->min_index);
+// 			i++;
+// 		}
+// 		print_stack(*a, *b, info);
+// 	}
+// 	else
+// 	{
+// 		int i = 0;
+// 		int diff = (info->size - (*a)->min_index);
+// 		print_stack(*a, *b, info);
+// 		printf("%i, %i, %i, %i\n", i, info->size, (*a)->min_index, diff);
+// 		while (i < diff)
+// 		{
+// 			rra(a, info);
+// 			i++;
+// 		}
+// 	}
 
-	if (is_sorted(*a) == false)
-	{
-		pb(a, b, info);
-		info->size--;
-		sort_n(a, b, info);
-		info->size++;
-		pa(a, b, info);
-	}
+// 	if (is_sorted(*a) == false)
+// 	{
+// 		pb(a, b, info);
+// 		info->size--;
+// 		sort_n(a, b, info);
+// 		pa(a, b, info);
+// 		info->size++;
+// 	}
 
-	print_stack_big(*a, 'a');
-	print_stack_big(*b, 'b');
-}
+// 	print_stack_big(*a, 'a');
+// 	print_stack_big(*b, 'b');
+// }

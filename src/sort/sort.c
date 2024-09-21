@@ -65,7 +65,7 @@ void	choose_sort(t_stack **a, t_stack **b, t_info *info)
 	}
 	else
 	{	
-		sort_n(a, b, info);
+		sort_all(a, b, info);
 		return ;
 	}
 	// else
