@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 19:52:15 by moni              #+#    #+#             */
-/*   Updated: 2024/09/08 20:13:41 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/21 20:22:20 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	sort_3(t_stack **a, t_stack **b, t_info *info)
 {
-	int		min = find_min(*a, info);
+	int		min = find_min(*a);
 	int		max = find_max(*a);
 	if ((*a)->content == min)
 	{

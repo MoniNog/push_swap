@@ -21,7 +21,7 @@ void	sort_all(t_stack **stack_a, t_stack **stack_b, t_info *info)
 	a = 0;
 	while (a < info->size)// tant quil reste qqch dans la stack
 	{
-		min = find_min(*stack_a, info);
+		min = find_min(*stack_a);
 		while ((*stack_a)->content != min)
 			ra(stack_a, info);
 		if(a < info->size)
@@ -65,7 +65,7 @@ void	choose_sort(t_stack **a, t_stack **b, t_info *info)
 	}
 	else
 	{	
-		sort_all(a, b, info);
+		sort_100_500(a, b, info);
 		return ;
 	}
 	// else

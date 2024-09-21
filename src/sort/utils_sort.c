@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 19:52:07 by moni              #+#    #+#             */
-/*   Updated: 2024/09/21 18:56:53 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/21 19:29:23 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ void sort_array(int *arr, int size) {
         }
     }
 }
-int find_min(t_stack *stack, t_info *info)
+
+int find_min(t_stack *stack)
 {
     int min;
     int i = 0;

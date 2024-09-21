@@ -6,13 +6,13 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 18:14:15 by moni              #+#    #+#             */
-/*   Updated: 2024/09/21 16:17:46 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/21 20:33:04 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
 
-t_stack *find_best_price(t_stack *a)
+t_price *find_best_price(t_stack *a)
 {
 	t_stack *cheapest;
 
@@ -20,12 +20,11 @@ t_stack *find_best_price(t_stack *a)
 	a = a->next;//pour pas comparer lepremier avec lui meme
 	while (a)
 	{
-		if (cheapest->price > a->price)
+		if (cheapest->struct_price->price > a->struct_price->price)
 			cheapest = a;
 		a = a->next;
 	}
-	printf("%i", cheapest->content);
-	return(cheapest);
+	return(cheapest->struct_price);
 }
 
 t_stack *find_last(t_stack *stack)
@@ -54,7 +53,6 @@ void calculate_price(t_stack *a, t_stack *b, t_info *info)
 	stage_a = 0;
 	top_b = b;
 
-	// En-tête du tableau avec séparateurs
 	printf("┌─────┬─────┬─────┬─────┬──────┐\n");
 	printf("│ %-3s │ %-3s │ %-3s │ %-3s │ %-4s │\n", "nb", "$A", "-", "$B", "$$");
 	printf("├─────┼─────┼─────┼─────┼──────┤\n");
@@ -65,25 +63,18 @@ void calculate_price(t_stack *a, t_stack *b, t_info *info)
 		stage_b = 0;
 		const char *min_max_flag = "";  // Pour spécifier "min" ou "max"
 
-		if (a->content < find_min(b, info))
+
+		if (a->content > find_max(b) || a->content < find_min(b))
 		{
-			while (b->content == b->max_index)
+			stage_b = 1;
+			while (b->content < b->next->content)
 			{	
 				stage_b++;
 				b = b->next;
 			}
-			min_max_flag = RED "min" RESET;
+			min_max_flag = RED "min ou max" RESET;
 		}
-		else if (a->content > find_max(b))
-		{		
-			while (b->next && b->content != b->max_index)
-			{
-				stage_b++;
-				b = b->next;
-			}
-			min_max_flag = BLUE "max" RESET;
-		}
-		else 
+		else
 		{
 			if (a->content > b->content && a->content < find_last(b)->content)
 				stage_b = 0;
@@ -95,12 +86,15 @@ void calculate_price(t_stack *a, t_stack *b, t_info *info)
 				}
 		}
 		if (stage_b >= stage_a)
-			a->price = stage_b;
+			a->struct_price->price = stage_b;
 		else
-			a->price = stage_a;
+			a->struct_price->price = stage_a;
+		write(1, "lily\n", 5);
+		a->struct_price->a_price = stage_a;
+		a->struct_price->b_price = stage_b;
 
 		// Affichage du contenu sous forme de tableau avec lignes de séparation et couleurs
-		printf("│ %-3i │ %-3i │     │ %-3i │ %-4i │ %s\n", a->content, stage_a, stage_b, a->price, min_max_flag);
+		printf("│ %-3i │ %-3i │     │ %-3i │ %-4i │ %s\n", a->content, stage_a, stage_b, a->struct_price->price, min_max_flag);
 
 		// Séparation entre les lignes pour mieux visualiser chaque étape
 		printf("├─────┼─────┼─────┼─────┼──────┤\n");
@@ -153,3 +147,12 @@ void calculate_price(t_stack *a, t_stack *b, t_info *info)
 
 // do_move
 
+void	sort_100_500(t_stack **a, t_stack **b, t_info *info)
+{
+	write(1, "lol\n", 3);
+	calculate_price(*a, *b, info);
+	write(1, "lil\n", 3);
+	t_price	*cheapest = find_best_price(*a);
+	write(1, "lul\n", 3);
+	printf("%i - %i - %i\n", cheapest->price, cheapest->a_price, cheapest->b_price);
+}

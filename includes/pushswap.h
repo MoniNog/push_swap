@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:13:16 by moni              #+#    #+#             */
-/*   Updated: 2024/09/21 18:55:40 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/21 20:30:22 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_stack
 	int				content;
 	struct s_stack	*next;
 	struct s_stack	*prev;
-	int				price;
+	struct s_price	*struct_price;
 	int				stage_a;
 	int				stage_b;
 	int				min_index;
@@ -46,6 +46,14 @@ typedef struct s_info
 	int				move;
 
 }					t_info;
+
+typedef struct s_price
+{
+	int				price;
+	int				a_price;
+	int				b_price;
+
+}					t_price;
 
 //	FUN
 	//	FUN > PUSH
@@ -82,15 +90,16 @@ typedef struct s_info
 	// SORT > SORT 4
 		void sort_4(t_stack **a, t_stack **b, t_info *info);
 		void sort_5(t_stack **a, t_stack **b, t_info *info);
-		void sort_n(t_stack **a, t_stack **b, t_info *info);
+		// void sort_n(t_stack **a, t_stack **b);
 
 	// SORT > SORT
 		void	sort_2(t_stack **a, t_info *info);
 		void	choose_sort(t_stack **a, t_stack **b, t_info *info);
+		void	sort_100_500(t_stack **a, t_stack **b, t_info *info);
 
 	// SORT > UTILS SORT
 		bool	is_sorted(t_stack *a);
-		int		find_min(t_stack *stack, t_info *info);
+		int		find_min(t_stack *stack);
 		int		find_max(t_stack *stack);
 		void print_stack_big(t_stack *stack, char name);
 		int find_max_index(t_stack *stack);
@@ -99,7 +108,7 @@ typedef struct s_info
 
 	// SORT > SORT 100 500
 		void	calculate_price(t_stack *a, t_stack *b, t_info *info);
-		t_stack *find_best_price(t_stack *a);
+		t_price *find_best_price(t_stack *a);
 
 
 
