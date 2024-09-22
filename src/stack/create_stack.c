@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 19:52:25 by moni              #+#    #+#             */
-/*   Updated: 2024/09/15 18:53:48 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/22 09:40:57 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@ t_stack	*new_node(char *av, t_info *info)
 	t_stack		*new;
 	int			number;
 
+
 	number = ft_atoi(av);
 	if (is_int(number) == true)
 	{
 		new = malloc(sizeof(t_stack));
+
 		if(!new)
 			return NULL;
 		new->content = number;
@@ -81,6 +83,8 @@ void create_stack(t_stack **stack_a, t_stack **stack_b, t_info **info, int ac, c
 	(*info)->size = 0;
 
 	*stack_a = new_node(av[0], *info);
+	if (!(*stack_a)->struct_price)
+		return;
 	i = 1;
 	while (av[i])
 	{
