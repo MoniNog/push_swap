@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:19:34 by moni              #+#    #+#             */
-/*   Updated: 2024/09/22 19:57:34 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/22 20:00:52 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,6 @@ int	main(int ac, char **av)
 		create_stack(&stack_a, &stack_b, &info, ac, z);
 		replace_with_indices(&stack_a);
 		choose_sort(&stack_a, &stack_b, info);
-		print_stack(stack_a, stack_b, info);
-
-		// pb(&stack_a, &stack_b, info);
-		// pb(&stack_a, &stack_b, info);
-		// pb(&stack_a, &stack_b, info);
-		// pb(&stack_a, &stack_b, info);
-		// print_stack(stack_a, stack_b, info);
-		// calculate_price(stack_a, stack_b, info);
-		// find_best_price(stack_a);
-	
 		print_stack(stack_a, stack_b, info);
 		print_move_and_size(stack_a, stack_b, info);
 
