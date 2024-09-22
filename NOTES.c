@@ -1,3 +1,44 @@
+- probleme de leaks avec split
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Avec Elise K. :
 - input : SPLIT, 
 - sort > 100 nombres (100 ok)

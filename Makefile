@@ -1,6 +1,8 @@
 NAME = push_swap
 CC = gcc
 CFLAGS =  -Wall -Wextra -I./lib/libft -Wno-unused-parameter
+SANITIZE_FLAGS = -g3 -fsanitize=address
+# CFLAGS =  valgrind --leak-check=full --track-origins=yes -Wall -Wextra -I./lib/libft -Wno-unused-parameter
 # CFLAGS =  -Wall -Wextra -g3 -fsanitize=address -I./lib/libft -Wno-unused-parameter
 LIBFT_PATH = ./lib/libft
 LIBFT = -L$(LIBFT_PATH) -lft
@@ -18,6 +20,12 @@ all: $(NAME)
 
 $(NAME): $(OBJS) libft.a
 	@$(CC) $(OBJS) -o $(NAME) $(CFLAGS) $(LIBFT)
+
+sanitize: CFLAGS += $(SANITIZE_FLAGS)
+sanitize: re
+
+valgrind: $(NAME)
+	valgrind --leak-check=full --track-origins=yes ./$(NAME)
 
 libft.a:
 	@make -C $(LIBFT_PATH) --silent

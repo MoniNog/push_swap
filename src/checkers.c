@@ -41,6 +41,12 @@ bool	is_int(long number)
 
 bool	checks_are_ok(char *av)
 {
+	if (av == NULL)
+    {
+        fprintf(stderr, "Error: input is NULL\n");
+        return false;
+    }
+
 	int	i;
 	
 	i = 0;

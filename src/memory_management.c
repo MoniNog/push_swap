@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/19 16:48:35 by moni              #+#    #+#             */
-/*   Updated: 2024/09/10 17:59:10 by moni             ###   ########.fr       */
+/*   Created: 2024/09/22 17:01:22 by moni              #+#    #+#             */
+/*   Updated: 2024/09/22 17:05:18 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,18 @@
 
 void	free_stack(t_stack *stack)
 {
-	t_stack	*temp;
+    t_stack	*temp;
 
-	temp = NULL;
-	while (stack)
-	{
-		temp = stack->next;
-		free(stack);
-		stack = temp;
-	}
+    temp = NULL;
+    while (stack)
+    {
+        temp = stack->next;
+        if (stack->struct_price) // Vérifiez si struct_price est alloué
+        {
+            free(stack->struct_price); // Libérez struct_price
+            stack->struct_price = NULL; // Évitez les doubles libérations
+        }
+        free(stack); // Libérez l'élément de la pile
+        stack = temp;
+    }
 }

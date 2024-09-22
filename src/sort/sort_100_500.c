@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 09:39:18 by moni              #+#    #+#             */
-/*   Updated: 2024/09/22 09:52:50 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/22 16:57:49 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,14 +127,14 @@ void calculate_price(t_stack *a, t_stack *b, t_info *info)
 void sort_100_500(t_stack **a, t_stack **b, t_info *info)
 {
     pb(a, b, info);
-    pb(a, b, info);
+    // pb(a, b, info);
 
     // Initialiser struct_price pour chaque élément de la pile a
     initialize_struct_price(*a);
 
     calculate_price(*a, *b, info);
     // t_price *cheapest = find_best_price(*a);
-	free((*a)->struct_price);
+	// free_stack((*a)->struct_price);
 	// free((*b)->struct_price);
 
 }
