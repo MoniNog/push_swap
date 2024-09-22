@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 18:14:15 by moni              #+#    #+#             */
-/*   Updated: 2024/09/22 18:39:53 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/22 19:54:02 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void calculate_price(t_stack *a, t_stack *b, t_info *info)
 		if (a->content > find_max(b) || a->content < find_min(b))
 		{
 			stage_b = 1;
-			while (b->content < b->next->content)
+			while (b->next && b->content < b->next->content)
 			{	
 				stage_b++;
 				b = b->next;
@@ -79,7 +79,7 @@ void calculate_price(t_stack *a, t_stack *b, t_info *info)
 			if (a->content > b->content && a->content < find_last(b)->content)
 				stage_b = 0;
 			else 
-				while (b->next && !(a->content < b->content && a->content > b->next->content))
+				while (b->next && b->next && !(a->content < b->content && a->content > b->next->content))
 				{
 					stage_b++;
 					b = b->next;
@@ -166,6 +166,9 @@ void initialize_struct_price(t_stack *stack)
 
 void	sort_100_500(t_stack **a, t_stack **b, t_info *info)
 {
+	pb(a, b, info);
+	pb(a, b, info);
+
 	initialize_struct_price(*a);
 	calculate_price(*a, *b, info);
 	// t_price	*cheapest = find_best_price(*a);
