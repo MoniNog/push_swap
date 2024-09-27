@@ -98,8 +98,16 @@ void	sort_100_500(t_stack **a, t_stack **b, t_info *info)
 		rotate_stack(a, b, info, cheapest);
 		pb(a, b, info);
 	}
-	while((*b)->content != find_max(*b))
-		rb(b, info);
+	if (find_max_index(*b) > (get_stack_size(*b) / 2))
+	{
+		while((*b)->content != find_max(*b))
+			rrb(b, info);
+	}
+	else
+	{
+		while((*b)->content != find_max(*b))
+			rb(b, info);
+	}
 	while(*b)
 		pa(a, b, info);
 }
