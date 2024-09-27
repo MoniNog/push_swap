@@ -137,6 +137,7 @@ typedef struct s_price
 
 // MEMORY MANAGEMENT
 	void	free_stack(t_stack *stack);
+	void	initialize_struct_price(t_stack *stack);
 
 // CHECKERS
 	bool	checks_are_ok(char *av);

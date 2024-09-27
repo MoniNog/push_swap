@@ -29,3 +29,20 @@ void	free_stack(t_stack *stack)
 		stack = temp;
 	}
 }
+
+void initialize_struct_price(t_stack *stack)
+{
+	while (stack)
+	{
+		stack->struct_price = malloc(sizeof(t_price));
+		if (!stack->struct_price)
+		{
+			perror("malloc");
+			exit(EXIT_FAILURE);
+		}
+		stack->struct_price->price = 0;
+		stack->struct_price->a_price = 0;
+		stack->struct_price->b_price = 0;
+		stack = stack->next;
+	}
+}
