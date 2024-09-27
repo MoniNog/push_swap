@@ -15,24 +15,21 @@
 void	swap(t_stack **stack)
 {
 	t_stack		*first;
+	t_stack		*tmp;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 		return ;
-	
-	first = *stack;//				first pointe sur le 1er
-	*stack = (*stack)->next;//		stack pointe mtn sur le 2eme
-
-	if ((*stack)->next == NULL)//	si que 2 elements dans la liste
+	first = *stack;
+	*stack = (*stack)->next;
+	if ((*stack)->next == NULL)
 	{
 		first->prev = *stack;
 		(*stack)->next = first;
 		(*stack)->prev = NULL;
 		first->next = NULL;
 	}
-
 	else
 	{
-		t_stack	*tmp;
 		first->prev = *stack;
 		tmp = (*stack)->next;
 		(*stack)->next->prev = first;

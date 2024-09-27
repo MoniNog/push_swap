@@ -17,33 +17,26 @@ void	reverse_rotate(t_stack **stack)
 	t_stack		*first;
 	t_stack		*last;
 
-	first = *stack;//				first pointe sur le 1er
+	first = *stack;
 	while ((*stack)->next != NULL)
-	{
 		*stack = (*stack)-> next;
-	}
-	last = (*stack);//				last pointe sur le dernier
-	*stack = last->prev;//			stack pointe mtn sur l'avant-dernier
-
+	last = (*stack);
+	*stack = last->prev;
 	if (*stack == NULL || (*stack)->next == NULL)
 		return ;
-	
-
-	if ((*stack)->next == NULL)//	si que 2 elements dans la liste
+	if ((*stack)->next == NULL)
 	{
 		first->prev = *stack;
 		(*stack)->next = first;
 		(*stack)->prev = NULL;
 		first->next = NULL;
 	}
-	
 	else
 	{
 		last->next = first;
 		first->prev = last;
 		(*stack)->next = NULL;
 		last->prev = NULL;
-
 		*stack = last;
 	}
 }

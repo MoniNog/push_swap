@@ -19,28 +19,21 @@ void	rotate(t_stack**stack)
 
 	if (*stack == NULL || (*stack)->next == NULL)
 		return ;
-	
-	first = *stack;//				first pointe sur le 1er
-	*stack = (*stack)->next;//		stack pointe mtn sur le 2eme
-
-	if ((*stack)->next == NULL)//	si que 2 elements dans la liste
+	first = *stack;
+	*stack = (*stack)->next;
+	if ((*stack)->next == NULL)
 	{
 		first->prev = *stack;
 		(*stack)->next = first;
 		(*stack)->prev = NULL;
 		first->next = NULL;
 	}
-	
 	else
 	{
 		while ((*stack)->next != NULL)
-		{
 			*stack = (*stack)-> next;
-		}
-
 		last = (*stack);
 		*stack = first->next;
-		
 		first->prev = last;
 		last->next = first;
 		first->next = NULL;

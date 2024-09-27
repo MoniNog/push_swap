@@ -17,8 +17,7 @@ int	main(int ac, char **av)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	t_info	*info;
-	char **z;
-
+	char	**z;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -31,13 +30,9 @@ int	main(int ac, char **av)
 			z = split(av[1], ' ');
 		}
 		else
-			z = av + 1;// z devient le premier arg apres le nom du programme
-		create_stack(&stack_a, &stack_b, &info, ac, z);
-		replace_with_indices(&stack_a);
+			z = av + 1;
+		create_stack(&stack_a, &stack_b, &info, z);
 		choose_sort(&stack_a, &stack_b, info);
-		//print_stack(stack_a, stack_b, info);
-		//print_move_and_size(stack_a, stack_b, info);
-
 		if (stack_b)
 			free_stack(stack_b);
 		free(info);

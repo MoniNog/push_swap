@@ -20,10 +20,7 @@
 # include "get_next_line.h"
 # include "ft_printf.h"
 # include <stdbool.h>
-
-#define INT_MAX 2147483647
-#define INT_MIN -2147483648
-
+# include <limits.h>
 
 typedef struct s_list
 {

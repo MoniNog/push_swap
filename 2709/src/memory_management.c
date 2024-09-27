@@ -20,17 +20,17 @@ void	free_stack(t_stack *stack)
 	while (stack)
 	{
 		temp = stack->next;
-		if (stack->struct_price) // Vérifiez si struct_price est alloué
+		if (stack->struct_price)
 		{
-			free(stack->struct_price); // Libérez struct_price
-			stack->struct_price = NULL; // Évitez les doubles libérations
+			free(stack->struct_price);
+			stack->struct_price = NULL;
 		}
-		free(stack); // Libérez l'élément de la pile
+		free(stack);
 		stack = temp;
 	}
 }
 
-void initialize_struct_price(t_stack *stack)
+void	initialize_struct_price(t_stack *stack)
 {
 	while (stack)
 	{

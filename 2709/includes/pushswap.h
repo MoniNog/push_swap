@@ -18,12 +18,10 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdbool.h>
+# include <limits.h>
 # include "get_next_line.h"
 # include "ft_printf.h"
 # include "libft.h"
-
-#define INT_MAX 2147483647
-#define INT_MIN -2147483648
 
 typedef struct s_stack
 {
@@ -44,7 +42,6 @@ typedef struct s_info
 {
 	int				size;
 	int				move;
-
 }					t_info;
 
 typedef struct s_price
@@ -52,7 +49,6 @@ typedef struct s_price
 	int				price;
 	int				a_price;
 	int				b_price;
-
 }					t_price;
 
 //	FUN
@@ -79,10 +75,10 @@ typedef struct s_price
 		void	rrb(t_stack **stack_b, t_info *info);
 		void	rrr(t_stack **stack_a, t_stack **stack_b, t_info *info);
 
-
 // SORT
 	// SORT > ALGO
-		void	sort_all(t_stack **stack_a, t_stack **stack_b, t_info *info);
+		void	sort_all(t_stack **stack_a, t_stack **stack_b, 
+			t_info *info);
 
 	// SORT > SORT 3
 		void	sort_3(t_stack **a, t_stack **b, t_info *info);
@@ -101,27 +97,27 @@ typedef struct s_price
 		bool	is_sorted(t_stack *a);
 		int		find_min(t_stack *stack);
 		int		find_max(t_stack *stack);
-		void print_stack_big(t_stack *stack, char name);
-		int find_max_index(t_stack *stack);
-		int find_min_index(t_stack *stack);
+		void 	print_stack_big(t_stack *stack, char name);
+		int 	find_max_index(t_stack *stack);
+		int 	find_min_index(t_stack *stack);
 		// int		stack_size(t_stack **stack);
 
 	// SORT > SORT 100 500
 		void	calculate_price(t_stack *a, t_stack *b, t_info *info);
 		t_price *find_best_price(t_stack *a);
 
-
-
 // STACK
 	// STACK > CREATE STACK
 		t_stack	*new_node(char *av, t_info *info);
 		void	push_back(t_stack **stack_a, t_stack *new);
-		void	create_stack(t_stack **stack_a, t_stack **stack_b, t_info** info, int ac, char **av);
+		void	create_stack(t_stack **stack_a, t_stack **stack_b, 
+			t_info** info, char **av);
 		long	ft_atol(const char *str);
 
 	// STACK > PRINT STACK
 		void	print_stack(t_stack *stack_a, t_stack *stack_b, t_info *info);
-		void	print_move_and_size(t_stack *stack_a, t_stack *stack_b, t_info *info);
+		void	print_move_and_size(t_stack *stack_a, t_stack *stack_b, 
+			t_info *info);
 
 	// STACK > UTILS STACK
 		int		get_stack_size(t_stack *stack);
@@ -130,10 +126,6 @@ typedef struct s_price
 		void	replace_with_indices(t_stack **stack_a);
 		bool	is_sorted(t_stack *a);
 		void	print_stack_big(t_stack *stack, char name);
-
-		// t_stack	*pop(t_stack **stack);// not used but usefull for lib
-		// void	push(t_stack **stack_a, t_stack *new);// not used but usefull for lib
-
 
 // MEMORY MANAGEMENT
 	void	free_stack(t_stack *stack);
@@ -144,10 +136,7 @@ typedef struct s_price
 	bool	is_int(long number);
 
 // SPLIT
-char	*clean_whitespace(const char *s);
-char	**split(const char *s, char c);
-
-
-
+	char	*clean_whitespace(const char *s);
+	char	**split(const char *s, char c);
 
 #endif

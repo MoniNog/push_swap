@@ -12,45 +12,47 @@
 
 #include "../../includes/pushswap.h"
 
-void	sort_3(t_stack **a, t_stack **b, t_info *info)
+void	begin_3(t_stack **a, t_stack **b, t_info *info)
 {
-	int		min = find_min(*a);
-	int		max = find_max(*a);
-	if ((*a)->content == min)
+	int		min;
+
+	min = find_min(*a);
+	if ((*a)->next->content == min)
 	{
-		if ((*a)->next->content < (*a)->next->next->content)// 1 2 3
-			return ;
-		else// 1 3 2
-		{
-			rra(a, info);// 1 3 2
-			sa(a, info);
-			return ;
-		}
+		ra(a, info);
+		return ;
 	}
-	else if ((*a)->content == max)// 321 312
+	else
 	{
-		if ((*a)->next->content == min)// 312
-		{
-			ra(a, info);
-			return ;
-		}
-		else//321
-		{
-			ra(a, info);
-			sa(a, info);
-			return ;
-		}
-	}
-	else if ((*a)->next->content == min)// 213
-	{
+		ra(a, info);
 		sa(a, info);
 		return ;
 	}
-	else if ((*a)->next->content != min)// 231
+}
+
+void	sort_3(t_stack **a, t_stack **b, t_info *info)
+{
+	int		min;
+	int		max;
+
+	min = find_min(*a);
+	max = find_max(*a);
+	if ((*a)->content == min)
 	{
-		rra(a, info);
-		return;
+		if ((*a)->next->content < (*a)->next->next->content)
+			return ;
+		else
+		{
+			rra(a, info);
+			sa(a, info);
+			return ;
+		}
 	}
-	else
-		return;
+	else if ((*a)->content == max)
+		begin_3(a, b, info);
+	else if ((*a)->next->content == min)
+		sa(a, info);
+	else if ((*a)->next->content != min)
+		rra(a, info);
+	return ;
 }

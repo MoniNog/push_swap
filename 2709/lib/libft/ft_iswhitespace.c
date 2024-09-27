@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 16:04:12 by monoguei          #+#    #+#             */
-/*   Updated: 2024/09/11 09:39:46 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/27 22:43:08 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ int	ft_iswhitespace(int c)
 {
 	if (!(c == ' ' || c == '\t' || c == '\n' || c == '\r' || c == '\v'
 			|| c == '\f'))
-		return (0);//pas un whitespace
-	return (1);//whitespace
+		return (0);
+	return (1);
 }
