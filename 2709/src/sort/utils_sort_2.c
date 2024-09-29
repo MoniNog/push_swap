@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 21:54:06 by moni              #+#    #+#             */
-/*   Updated: 2024/09/27 22:12:27 by moni             ###   ########.fr       */
+/*   Updated: 2024/09/29 15:31:44 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,24 @@ bool	is_sorted(t_stack *a)
 			return (false);
 	}
 	return (true);
+}
+
+void	rotate_stack(t_stack **a, t_stack **b, t_info *info, t_price *cheapest)
+{
+	while (cheapest->a_price > 0 && cheapest->b_price > 0)
+	{
+		rr(a, b, info);
+		cheapest->a_price--;
+		cheapest->b_price--;
+	}
+	while (cheapest->a_price > 0)
+	{
+		ra(a, info);
+		cheapest->a_price--;
+	}
+	while (cheapest->b_price > 0)
+	{
+		rb(b, info);
+		cheapest->b_price--;
+	}
 }

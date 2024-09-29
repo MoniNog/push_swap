@@ -22,14 +22,14 @@
 
 // 	index = 0;
 // 	// Affichage principal
-// 	printf(RED "\n─────────────────────────────────────────────────────────"
-// 		BLUE "\n");
+// 	printf(RED "\n───────────────────────────────"
+// 	       "───────────────────────────────" BLUE "\n");
 // 	printf(BLUE "┌───────────────┐\t┌───────────────┐\n");
 // 	printf("│    Stack A    │\t│    Stack B    │\n");
 // 	printf("└───────────────┘\t└───────────────┘\n");
 // 	printf("┌─────┬─────────┐\t┌─────┬─────────┐\n");
-// 	printf("│" RED " Ind " BLUE "│  Value  │\t│" RED " Ind " BLUE "│" "  
-		// Value  " BLUE "│\n");
+// 	printf("│" RED " Ind " BLUE "│  Value  │\t│" RED " Ind " BLUE "│"
+// 	       "  Value  " BLUE "│\n");
 // 	printf("├─────┼─────────┤\t├─────┼─────────┤\n" RESET);
 
 // 	// Affiche les éléments des piles tant qu'ils existent
@@ -38,40 +38,39 @@
 // 		if (stack_a)
 // 		{
 // 			// Affichage bien aligné pour Stack A
-// 			printf(BLUE "│ " RED "%2d  " BLUE "│ %5d\t│\t", index, 
-// 				stack_a->content);
+// 			printf(BLUE "│ " RED "%2d  " BLUE "│ %5d\t│\t", index,
+// 			       stack_a->content);
 // 			stack_a = stack_a->next;
 // 		}
 // 		else
+// 			// Si Stack A est vide, on affiche des espaces pour garder
+// 			// l'alignement
 // 			printf(BLUE "│     │         │\t");
 
 // 		if (stack_b)
 // 		{
 // 			// Affichage bien aligné pour Stack B
-// 			printf("│ " RED "%2d  " BLUE "│" RED "%5d\t" BLUE "│\n", 
-				// index, stack_b->content);
+// 			printf("│ " RED "%2d  " BLUE "│" RED "%5d\t" BLUE "│\n",
+// 			       index, stack_b->content);
 // 			stack_b = stack_b->next;
 // 		}
 // 		else
+// 			// Si Stack B est vide, on affiche des espaces pour garder
+// 			// l'alignement
 // 			printf("│     │         │\n");
-
 // 		index++;
 // 	}
 // 	printf("└─────┴─────────┘\t└─────┴─────────┘" RESET "\n");
-// 	printf(RED "──────────────────────────────────────────────────" 
-// 		RESET "\n");
+// 	printf(RED "───────────────────────────────"
+// 	       "───────────────────────────────" RESET "\n");
 // }
 
-// void	print_move_and_size(t_stack* stack_a, t_stack* stack_b, 
-	// t_info* info)
+// void	print_move_and_size(t_stack* stack_a, t_stack* stack_b, t_info* info)
 // {
 // 	printf("\t" BLUE "┌─────────────────────────┐\n");
-// 	printf("\t│" RED "    Count move : %3i" BLUE "     │\n", 
-		// info->move);
+// 	printf("\t│" RED "    Count move : %3i" BLUE "     │\n", info->move);
 // 	printf("\t└─────────────────────────┘\n");
-
 // 	printf("\n\t" BLUE "┌─────────────────────────┐\n");
-// 	printf("\t│" RED "    Stack size : %3i" BLUE "     │\n", 
-		// info->size);
+// 	printf("\t│" RED "    Stack size : %3i" BLUE "     │\n", info->size);
 // 	printf("\t└─────────────────────────┘\n\n");
 // }

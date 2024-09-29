@@ -37,50 +37,43 @@ void	store_prices(t_stack *a, int stage_a, int stage_b)
 	a->struct_price->b_price = stage_b;
 }
 
+int	calculate_stage_b(t_stack *a, t_stack *b)
+{
+	t_stack	*tmp;
+	int		stage_b;
+	int		b_max;
+	int		b_min;
+
+	stage_b = 1;
+	tmp = b;
+	b_max = find_max(tmp);
+	b_min = find_min(tmp);
+	if (a->content > b_max || a->content < b_min)
+		stage_b = find_max_index(tmp);
+	else
+	{
+		while (tmp->next && !(a->content < tmp->content && a->content
+				> tmp->next->content))
+		{
+			stage_b++;
+			tmp = tmp->next;
+		}
+	}
+	return (stage_b);
+}
+
 void	calculate_price(t_stack *a, t_stack *b, t_info *info)
 {
-	int			stage_b;
-	int			stage_a;
-	int			b_max;
-	int			b_min;
+	int	stage_a;
+	int	stage_b;
 
 	stage_a = 0;
 	while (get_stack_size(a) != 0)
 	{
-		stage_b = 1;
-		b_max = find_max(b);
-		b_min = find_min(b);
-		if (a->content > b_max || a->content < b_min)
-			stage_b = find_max_index(b);
-		else
-		{
-			while (b->next && !(a->content < b->content && a->content
-					> b->next->content && stage_b++))
-				b = b->next;
-		}
+		stage_b = calculate_stage_b(a, b);
 		store_prices(a, stage_a, stage_b);
 		a = a->next;
 		stage_a++;
-	}
-}
-
-void	rotate_stack(t_stack **a, t_stack **b, t_info *info, t_price *cheapest)
-{
-	while (cheapest->a_price > 0 && cheapest->b_price > 0)
-	{
-		rr(a, b, info);
-		cheapest->a_price--;
-		cheapest->b_price--;
-	}
-	while (cheapest->a_price > 0)
-	{
-		ra(a, info);
-		cheapest->a_price--;
-	}
-	while (cheapest->b_price > 0)
-	{
-		rb(b, info);
-		cheapest->b_price--;
 	}
 }
 

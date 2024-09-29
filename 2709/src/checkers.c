@@ -45,3 +45,32 @@ bool	checks_are_ok(char *av)
 	}
 	return (true);
 }
+
+int	count_len_word(const char *s, char c, int i)
+{
+	int		len;
+
+	len = 0;
+	while (s[i] != c && s[i])
+	{
+		i++;
+		len++;
+	}
+	return (len);
+}
+
+int	count_words(const char *s, char c)
+{
+	int	n_word;
+	int	i;
+
+	n_word = 0;
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] != c && (i == 0 || s[i - 1] == c))
+			n_word++;
+		i++;
+	}
+	return (n_word);
+}
