@@ -35,8 +35,6 @@ void	store_prices(t_stack *a, int stage_a, int stage_b)
 		a->struct_price->price = stage_a;
 	a->struct_price->a_price = stage_a;
 	a->struct_price->b_price = stage_b;
-	a = a->next;
-	stage_a++;
 }
 
 void	calculate_price(t_stack *a, t_stack *b, t_info *info)
@@ -57,13 +55,12 @@ void	calculate_price(t_stack *a, t_stack *b, t_info *info)
 		else
 		{
 			while (b->next && !(a->content < b->content && a->content
-					> b->next->content))
-			{
-				stage_b++;
+					> b->next->content && stage_b++))
 				b = b->next;
-			}
 		}
 		store_prices(a, stage_a, stage_b);
+		a = a->next;
+		stage_a++;
 	}
 }
 
