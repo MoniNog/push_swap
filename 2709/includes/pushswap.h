@@ -64,13 +64,13 @@ void	sb(t_stack **stack_b, t_info *info);
 void	ss(t_stack **stack_a, t_stack **stack_b, t_info *info);
 
 //	FUN > ROTATE
-void	rotate(t_stack **stack);// Rot vers le haut
+void	rotate(t_stack **stack);
 void	rb(t_stack **stack_b, t_info *info);
 void	ra(t_stack **stack_a, t_info *info);
 void	rr(t_stack **stack_a, t_stack **stack_b, t_info *info);
 
 //	FUN > REVERSE ROTATE
-void	reverse_rotate(t_stack **stack);// Rot vers le bas
+void	reverse_rotate(t_stack **stack);
 void	rra(t_stack **stack_a, t_info *info);
 void	rrb(t_stack **stack_b, t_info *info);
 void	rrr(t_stack **stack_a, t_stack **stack_b, t_info *info);
@@ -108,7 +108,7 @@ void	create_stack(t_stack **stack_a, t_stack **stack_b,
 			t_info **info, char **av);
 
 // STACK > PRINT STACK
-// void	print_stack(t_stack *stack_a, t_stack *stack_b, t_info *info);
+void	print_stack(t_stack *stack_a, t_stack *stack_b, t_info *info);
 // void	print_move_and_size(t_stack *stack_a, t_stack *stack_b, 
 	// t_info *info);
 
@@ -118,7 +118,7 @@ int		find_index(int *sorted_arr, int size, int value);
 void	sort_array(int *arr, int size);
 // void	replace_with_indices(t_stack **stack_a);
 bool	is_sorted(t_stack *a);
-// void	print_stack_big(t_stack *stack, char name);
+void	rotate_stack(t_stack **a, t_stack **b, t_info *info, t_price *cheapest);
 
 // MEMORY MANAGEMENT
 void	free_stack(t_stack *stack);
@@ -127,6 +127,9 @@ void	initialize_struct_price(t_stack *stack);
 // CHECKERS
 bool	checks_are_ok(char *av);
 bool	is_int(long number);
+int		count_len_word(const char *s, char c, int i);
+int		count_words(const char *s, char c);
+
 
 // SPLIT
 char	*clean_whitespace(const char *s);
